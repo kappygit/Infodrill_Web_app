@@ -181,6 +181,12 @@
   transition: transform 0.2s ease;
 }
 
+.footer-brand-logo img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-brand-logo:hover {
   transform: scale(1.02);
 }

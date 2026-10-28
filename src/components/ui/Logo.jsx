@@ -14,14 +14,14 @@ export function Logo({
 }) {
   // Generous, prominent heights for strong brand visibility
   const heightMap = {
-    xs: 28,
-    sm: 38,
-    md: 46,
-    lg: 58,
-    xl: 74
+    xs: 32,
+    sm: 44,
+    md: 54,
+    lg: 68,
+    xl: 86
   };
 
-  const currentHeight = customHeight || heightMap[size] || 46;
+  const currentHeight = customHeight || heightMap[size] || 54;
 
   // Standalone vector mark if text is hidden
   if (!showText) {
