@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X, ArrowRight, Sparkles, Phone, Mail, MapPin } from 'lucide-react';
+import { X, ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { Logo } from '../ui/Logo';
 import './MobileNavigation.css';
@@ -110,68 +110,78 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
               </button>
             </div>
 
-            {/* Navigation Links */}
-            <nav className="mobile-nav-links" aria-label="Mobile Navigation List">
+            {/* Navigation Links — Clean Brand Typography without artificial index numbers */}
+            <nav className="mobile-nav-links" aria-label="Main Navigation">
               <ul role="list">
-                {navigation.map((item, index) => (
+                {navigation.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
                       className="mobile-nav-link"
                       onClick={(e) => handleLinkClick(e, item.href)}
                     >
-                      <div className="mobile-nav-link__content">
-                        <span className="mobile-nav-link__index">0{index + 1}</span>
-                        <span className="mobile-nav-link__label">{item.label}</span>
-                      </div>
-                      <ArrowRight size={18} className="mobile-nav-link__arrow" />
+                      <span className="mobile-nav-link__label">{item.label}</span>
+                      <span className="mobile-nav-link__arrow" aria-hidden="true">
+                        <ArrowUpRight size={17} strokeWidth={2.4} />
+                      </span>
                     </a>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            {/* Footer Area with Quick Contact & CTA */}
+            {/* Footer Area with Signature Brand CTA & Direct Channels */}
             <div className="mobile-nav-footer">
               <a
                 href="#contact"
                 className="mobile-nav-cta-btn"
                 onClick={(e) => handleLinkClick(e, '#contact')}
               >
-                <Sparkles size={16} />
-                <span>Get Started Now</span>
-                <ArrowRight size={16} />
+                <span>GET STARTED</span>
+                <span className="mobile-nav-cta-btn__icon" aria-hidden="true">
+                  <ArrowUpRight size={16} strokeWidth={2.8} />
+                </span>
               </a>
 
-              <div className="mobile-nav-quick-contacts">
-                <a href={`tel:${phone.replace(/\s+/g, '')}`} className="mobile-quick-item">
-                  <div className="mobile-quick-icon">
-                    <Phone size={14} />
-                  </div>
-                  <div className="mobile-quick-text">
-                    <span className="mobile-quick-label">Direct Phone</span>
-                    <span className="mobile-quick-val">{phone}</span>
-                  </div>
-                </a>
+              {/* Direct Channels matching Home Section */}
+              <div className="mobile-nav-channels">
+                <span className="mobile-nav-channels__title">DIRECT CHANNELS</span>
 
-                <a href={`mailto:${email}`} className="mobile-quick-item">
-                  <div className="mobile-quick-icon">
-                    <Mail size={14} />
-                  </div>
-                  <div className="mobile-quick-text">
-                    <span className="mobile-quick-label">Direct Email</span>
-                    <span className="mobile-quick-val">{email}</span>
-                  </div>
-                </a>
+                <div className="mobile-channels-list">
+                  <a href={`tel:${phone.replace(/\s+/g, '')}`} className="mobile-channel-link">
+                    <div className="mobile-channel-icon" aria-hidden="true">
+                      <Phone size={13} />
+                    </div>
+                    <div className="mobile-channel-info">
+                      <span className="mobile-channel-tag">PHONE</span>
+                      <span className="mobile-channel-text">{phone}</span>
+                    </div>
+                  </a>
 
-                <div className="mobile-quick-item mobile-quick-item--address">
-                  <div className="mobile-quick-icon">
-                    <MapPin size={14} />
+                  <a href={`mailto:${email}`} className="mobile-channel-link">
+                    <div className="mobile-channel-icon" aria-hidden="true">
+                      <Mail size={13} />
+                    </div>
+                    <div className="mobile-channel-info">
+                      <span className="mobile-channel-tag">EMAIL</span>
+                      <span className="mobile-channel-text">{email}</span>
+                    </div>
+                  </a>
+
+                  <div className="mobile-channel-link">
+                    <div className="mobile-channel-icon" aria-hidden="true">
+                      <MapPin size={13} />
+                    </div>
+                    <div className="mobile-channel-info">
+                      <span className="mobile-channel-tag">OFFICE</span>
+                      <span className="mobile-channel-text">Thaltej, Ahmedabad, Gujarat</span>
+                    </div>
                   </div>
-                  <div className="mobile-quick-text">
-                    <span className="mobile-quick-label">Headquarters</span>
-                    <span className="mobile-quick-val">Thaltej, Ahmedabad, Gujarat</span>
-                  </div>
+                </div>
+
+                <div className="mobile-nav-status">
+                  <span className="mobile-status-dot" aria-hidden="true" />
+                  <span>Guaranteed response within 24 hours</span>
                 </div>
               </div>
             </div>
