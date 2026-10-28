@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { Logo } from '../ui/Logo';
 import { 
   ArrowUpRight, 
   Globe, 
@@ -127,18 +128,7 @@ export function Footer() {
             {/* Column 1: Brand Info */}
             <div className="footer-brand-column">
               <a href="#hero" className="footer-brand-logo" aria-label="INFODRILL AI SOLUTIONS">
-                {/* Yellow 3-band geometric folded logo */}
-                <div className="footer-logo-mark" aria-hidden="true">
-                  <svg width="34" height="24" viewBox="0 0 34 24" fill="none">
-                    <path d="M4 2L10 22H15.5L9.5 2H4Z" fill="#FFDE00" />
-                    <path d="M13 2L19 22H24.5L18.5 2H13Z" fill="#FFDE00" />
-                    <path d="M22 2L28 22H33.5L27.5 2H22Z" fill="#FFDE00" opacity="0.95" />
-                  </svg>
-                </div>
-                <div className="footer-brand-name-group">
-                  <span className="footer-brand-name">INFODRILL</span>
-                  <span className="footer-brand-tag">AI SOLUTIONS</span>
-                </div>
+                <Logo size="md" />
               </a>
               
               <p className="footer-brand-desc">

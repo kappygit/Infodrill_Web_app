@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import { MobileNavigation } from './MobileNavigation';
 import { siteConfig } from '../../config/siteConfig';
+import { Logo } from '../ui/Logo';
 import { Menu, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './Navbar.css';
@@ -25,13 +26,9 @@ export function Navbar() {
           <div className="notch-fillet notch-fillet--left" aria-hidden="true" />
 
           <div className="notch-content">
-            {/* Logo Mark */}
+            {/* Official InfoDrill Logo */}
             <a href="#" className="notch-logo" aria-label="INFODRILL AI SOLUTIONS Home">
-              <svg width="28" height="22" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 2L10 22H15L9 2H4Z" fill="#FFDE00" />
-                <path d="M12 2L18 22H23L17 2H12Z" fill="#FFDE00" />
-                <path d="M20 2L26 22H31L25 2H20Z" fill="#FFDE00" opacity="0.9" />
-              </svg>
+              <Logo size="sm" />
             </a>
 
             {/* Desktop Navigation Links */}

@@ -63,9 +63,9 @@
 
 .why-card:hover {
   transform: translateY(-8px) scale(1.01);
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(79, 70, 229, 0.35);
   box-shadow: 
-    0 22px 45px -10px rgba(37, 99, 235, 0.15),
+    0 22px 45px -10px rgba(79, 70, 229, 0.18),
     0 4px 12px rgba(0, 0, 0, 0.04);
 }
 

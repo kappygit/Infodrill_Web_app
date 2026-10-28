@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, ArrowRight, Sparkles, Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
+import { Logo } from '../ui/Logo';
 import './MobileNavigation.css';
 
 export function MobileNavigation({ isOpen, onClose, navigation }) {
@@ -96,17 +97,7 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
             {/* Header: Logo + Close */}
             <div className="mobile-nav-header">
               <div className="mobile-nav-brand">
-                <div className="mobile-nav-logo-mark" aria-hidden="true">
-                  <svg width="24" height="18" viewBox="0 0 32 24" fill="none">
-                    <path d="M4 2L10 22H15L9 2H4Z" fill="#FFDE00" />
-                    <path d="M12 2L18 22H23L17 2H12Z" fill="#FFDE00" />
-                    <path d="M20 2L26 22H31L25 2H20Z" fill="#FFDE00" opacity="0.9" />
-                  </svg>
-                </div>
-                <div className="mobile-nav-brand-text">
-                  <span className="mobile-nav-brand__name">INFODRILL</span>
-                  <span className="mobile-nav-brand__tag">AI SOLUTIONS</span>
-                </div>
+                <Logo size="sm" />
               </div>
 
               <button

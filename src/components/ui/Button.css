@@ -88,21 +88,21 @@
   padding: 14px 30px;
 }
 
-/* Primary — Electric Blue with Laser Bloom */
+/* Primary — Logo Electric Periwinkle & Royal Indigo Gradient */
 .btn--primary {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow:
-    0 4px 14px rgba(37, 99, 235, 0.35),
+    0 4px 16px rgba(79, 70, 229, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn--primary:hover {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #4F46E5 100%);
   border-color: rgba(255, 255, 255, 0.45);
   box-shadow:
-    0 10px 28px -4px rgba(37, 99, 235, 0.55),
+    0 10px 28px -4px rgba(79, 70, 229, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 

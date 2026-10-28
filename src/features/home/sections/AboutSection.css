@@ -38,7 +38,7 @@
 }
 
 .text-blue {
-  color: #2563EB !important;
+  color: #4F46E5 !important;
 }
 
 .about-paragraph {
@@ -76,7 +76,7 @@
 }
 
 .check-icon {
-  color: #2563EB;
+  color: #4F46E5;
   flex-shrink: 0;
 }
 
@@ -202,7 +202,7 @@
   color: #4B5563;
   font-style: italic;
   padding-left: 12px;
-  border-left: 3px solid #2563EB;
+  border-left: 3px solid #4F46E5;
 }
 
 /* Badge on image: 5+ Years of Excellence */

@@ -175,7 +175,7 @@
   font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 800;
-  color: #2563EB;
+  color: #4F46E5;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -183,7 +183,7 @@
 }
 
 .service-link:hover {
-  color: #1D4ED8;
+  color: #4338CA;
   gap: 9px;
 }
 

@@ -1,37 +1,45 @@
 :root {
   /* ==========================================================================
-     Reference Design System — Premium Warm Pastel & Bold Condensed Neo-Grotesk
-     Directly matched to provided reference UI screenshots
+     InfoDrill Brand Design System — Indigo & Electric Periwinkle Tech Modern
+     Derived directly from official InfoDrill AI Solutions Logo
      ========================================================================== */
 
   /* Surface Colors */
   --color-page-bg: #FFFFFF;
-  --color-hero-bg: #FDECE2;
-  --color-card-peach: #FEEAE0;
-  --color-card-blue: #E0F2FE;
-  --color-card-purple: #F3E8FF;
-  --color-card-yellow: #FEF9C3;
+  --color-hero-bg: #EEF2FF;
+  --color-card-peach: #EEF2FF;        /* Re-themed to Soft Periwinkle/Indigo Tint */
+  --color-card-blue: #E0E7FF;         /* Electric Indigo Soft Surface */
+  --color-card-purple: #F5F3FF;       /* Soft Iris/Lavender */
+  --color-card-yellow: #F0F4FF;       /* Luminous Ice Blue/Periwinkle */
   --color-card-white: #FFFFFF;
-  --color-dark-notch: #121212;
+  --color-dark-notch: #0F131D;
 
   /* Typography Colors */
-  --color-text-main: #111111;
-  --color-text-heading: #121212;
-  --color-text-body: #555555;
-  --color-text-muted: #737373;
-  --color-text-light: #9CA3AF;
+  --color-text-main: #0F172A;
+  --color-text-heading: #0F172A;
+  --color-text-body: #475569;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
   --color-text-white: #FFFFFF;
 
-  /* Key Accents from Reference */
-  --color-accent-blue: #2563EB;
-  --color-accent-blue-hover: #1D4ED8;
-  --color-accent-blue-light: #EFF6FF;
+  /* Key Accents Matched to InfoDrill Logo Gradient (#818CF8 -> #6366F1 -> #4F46E5 -> #3730A3) */
+  --color-accent-blue: #4F46E5;       /* Primary Indigo */
+  --color-accent-blue-hover: #4338CA; /* Deep Indigo */
+  --color-accent-blue-light: #EEF2FF; /* Soft Tint */
   
-  --color-accent-orange: #F97316;
-  --color-accent-purple: #A855F7;
-  --color-accent-yellow: #FFDE00;
-  --color-accent-gold: #F59E0B;
+  --color-accent-indigo: #4F46E5;
+  --color-accent-periwinkle: #818CF8;
+  --color-accent-iris: #6366F1;
+  --color-accent-purple: #818CF8;
+  --color-accent-yellow: #818CF8;
+  --color-accent-orange: #6366F1;
+  --color-accent-gold: #818CF8;
   --color-accent-green: #10B981;
+
+  /* Brand Gradients */
+  --gradient-logo: linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #4F46E5 100%);
+  --gradient-hero: radial-gradient(circle at 50% 25%, #FFFFFF 0%, #F5F7FF 40%, #EEF2FF 100%);
+  --gradient-footer: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 20%, #818CF8 65%, #3730A3 100%);
 
   /* Unified Typography System */
   --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -81,7 +89,8 @@
 
   /* Shadows */
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-  --shadow-float: 0 20px 45px -10px rgba(0, 0, 0, 0.1);
-  --shadow-phone: 0 35px 80px -15px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 10px 30px -5px rgba(79, 70, 229, 0.06);
+  --shadow-float: 0 20px 45px -10px rgba(79, 70, 229, 0.12);
+  --shadow-phone: 0 35px 80px -15px rgba(15, 23, 42, 0.22);
+  --shadow-glow: 0 10px 25px -4px rgba(79, 70, 229, 0.35);
 }

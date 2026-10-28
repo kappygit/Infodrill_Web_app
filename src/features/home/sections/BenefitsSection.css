@@ -57,7 +57,7 @@
 }
 
 .benefits-headline--blue {
-  color: #2563EB !important;
+  color: #4F46E5 !important;
 }
 
 .benefits-description {
@@ -87,7 +87,7 @@
 }
 
 .bullet-check {
-  color: #2563EB;
+  color: #4F46E5;
   flex-shrink: 0;
 }
 
@@ -129,8 +129,9 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: #2563EB;
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

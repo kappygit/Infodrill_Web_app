@@ -18,12 +18,13 @@
   justify-content: center;
 }
 
-/* Warm Peach / Apricot Hero Card */
+/* Luminous Tech Indigo / Periwinkle Hero Card Matching Logo */
 .hero-container-card {
   position: relative;
   width: 100%;
   max-width: 1360px;
-  background: radial-gradient(circle at 50% 25%, #FFF6F0 0%, #FEEAE0 60%, #FBD9C8 100%);
+  background: radial-gradient(circle at 50% 20%, #FFFFFF 0%, #F5F7FF 45%, #EEF2FF 100%);
+  border: 1px solid rgba(79, 70, 229, 0.12);
   border-radius: 40px;
   padding: 60px 24px 0;
   display: flex;
@@ -31,7 +32,7 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 40px rgba(79, 70, 229, 0.05);
   min-height: 820px;
 }
 
@@ -147,8 +148,9 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: #2563EB;
+  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -195,20 +197,20 @@
 .ring-band--outer {
   width: 760px;
   height: 760px;
-  border: 48px solid rgba(192, 132, 252, 0.35);
-  box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.15);
+  border: 48px solid rgba(129, 140, 248, 0.28);
+  box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.15);
 }
 
 .ring-band--middle {
   width: 620px;
   height: 620px;
-  border: 44px solid rgba(251, 146, 60, 0.38);
+  border: 44px solid rgba(99, 102, 241, 0.22);
 }
 
 .ring-band--inner {
   width: 490px;
   height: 490px;
-  border: 40px solid rgba(254, 215, 170, 0.5);
+  border: 40px solid rgba(79, 70, 229, 0.15);
 }
 
 /* ==========================================================================

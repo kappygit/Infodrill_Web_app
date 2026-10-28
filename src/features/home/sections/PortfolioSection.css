@@ -58,8 +58,8 @@
 
 .portfolio-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(37, 99, 235, 0.3);
-  box-shadow: 0 18px 40px -10px rgba(37, 99, 235, 0.12);
+  border-color: rgba(79, 70, 229, 0.35);
+  box-shadow: 0 18px 40px -10px rgba(79, 70, 229, 0.15);
 }
 
 .portfolio-card__top {
@@ -153,7 +153,7 @@
   font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 800;
-  color: #2563EB;
+  color: #4F46E5;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -161,7 +161,7 @@
 }
 
 .project-cta-link:hover {
-  color: #1D4ED8;
+  color: #4338CA;
   gap: 9px;
 }
 
