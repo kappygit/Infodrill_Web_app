@@ -1,10 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight, Star } from 'lucide-react';
 import './HeroSection.css';
 
 export function HeroSection() {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Scroll progress for the hero section
   const { scrollYProgress } = useScroll({
@@ -113,7 +123,10 @@ export function HeroSection() {
             {/* Concentric Decorative Circular Rings in Background */}
             <motion.div 
               className="hero-concentric-rings"
-              style={{ scale: ringsScale, opacity: ringsOpacity }}
+              style={{ 
+                scale: isMobile ? 1 : ringsScale, 
+                opacity: isMobile ? 0.75 : ringsOpacity 
+              }}
               aria-hidden="true"
             >
               <div className="ring-band ring-band--outer" />
@@ -125,9 +138,9 @@ export function HeroSection() {
             <motion.div 
               className="hero-phone-container"
               style={{
-                y: phoneY,
-                scale: phoneScale,
-                rotateX: phoneRotateX,
+                y: isMobile ? 0 : phoneY,
+                scale: isMobile ? 1 : phoneScale,
+                rotateX: isMobile ? 0 : phoneRotateX,
                 transformPerspective: 1000
               }}
             >
@@ -189,7 +202,10 @@ export function HeroSection() {
               {/* Floating Card 1: Artc F... (Left) */}
               <motion.div 
                 className="hero-float-card hero-float-card--artc animate-float"
-                style={{ y: artcCardY, rotate: artcCardRotate }}
+                style={{ 
+                  y: isMobile ? 0 : artcCardY, 
+                  rotate: isMobile ? -6 : artcCardRotate 
+                }}
                 whileHover={{ y: -8, scale: 1.05, transition: { duration: 0.2 } }}
               >
                 <div className="artc-blue-icon" aria-hidden="true">
@@ -220,7 +236,10 @@ export function HeroSection() {
               {/* Floating Card 2: Expenses 85% + Bar Chart (Center / Right) */}
               <motion.div 
                 className="hero-float-card hero-float-card--expenses animate-float-reverse"
-                style={{ y: expensesCardY, rotate: expensesCardRotate }}
+                style={{ 
+                  y: isMobile ? 0 : expensesCardY, 
+                  rotate: isMobile ? 6 : expensesCardRotate 
+                }}
                 whileHover={{ y: -8, scale: 1.05, transition: { duration: 0.2 } }}
               >
                 <div className="expenses-text-block">
@@ -240,7 +259,10 @@ export function HeroSection() {
               {/* Floating Badge 3: Yellow Piggy Bank on Blue Circle (Right) */}
               <motion.div 
                 className="hero-piggy-badge animate-float"
-                style={{ y: piggyY, scale: piggyScale }}
+                style={{ 
+                  y: isMobile ? 0 : piggyY, 
+                  scale: isMobile ? 1 : piggyScale 
+                }}
                 whileHover={{ scale: 1.15, rotate: 10, transition: { duration: 0.2 } }}
                 aria-label="Savings badge"
               >

@@ -98,8 +98,9 @@ export function Logo({
       <img 
         src="/logo.png" 
         alt="InfoDrill AI Solutions" 
+        className="infodrill-brand-img"
         style={{
-          height: `${currentHeight}px`,
+          height: customHeight ? `${customHeight}px` : `${currentHeight}px`,
           width: 'auto',
           maxWidth: `${Math.round(currentHeight * 3.2)}px`,
           objectFit: 'contain',

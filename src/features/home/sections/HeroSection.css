@@ -593,7 +593,7 @@
 
   .hero-container-card {
     border-radius: 28px;
-    padding: 76px 16px 24px;
+    padding: 84px 16px 28px;
     min-height: auto;
   }
 
@@ -607,9 +607,9 @@
   }
 
   .hero-display-title {
-    font-size: clamp(2rem, 8.5vw, 2.85rem);
-    line-height: 1.02;
-    margin-bottom: 16px;
+    font-size: clamp(1.85rem, 8vw, 2.6rem);
+    line-height: 1.04;
+    margin-bottom: 14px;
     word-break: break-word;
   }
 
