@@ -2,19 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { 
   X, 
-  ArrowUpRight, 
-  Phone, 
+  ArrowRight, 
   Mail, 
+  Phone, 
   MapPin, 
-  Clock, 
-  Sparkles, 
-  Cpu, 
-  Layers, 
-  Smartphone, 
-  Cloud, 
-  Database,
-  Building2,
-  CheckCircle2,
+  Globe, 
+  ChevronDown, 
+  Facebook, 
+  Linkedin, 
+  Twitter, 
+  Instagram, 
   ShieldCheck
 } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
@@ -83,29 +80,30 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
     }
   };
 
+  const quickLinks = [
+    { label: 'About Us', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Industries', href: '#industries' },
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  const services = [
+    'ERP Development',
+    'CRM Solutions',
+    'AI Solutions',
+    'Web Development',
+    'App Development',
+    'Custom Software',
+    'Cloud & DevOps',
+    'Business Automation'
+  ];
+
   const phone = siteConfig?.contact?.phone || '+91 92135 32517';
   const email = siteConfig?.contact?.email || 'infodrillaisolutions@gmail.com';
   const address = siteConfig?.contact?.address || '307, Silver Radiance One, Thaltej, Ahmedabad, Gujarat – 380054';
-  const hours = siteConfig?.contact?.hours || 'Mon - Sat, 9:30 AM - 7:00 PM IST';
-
-  // Subtitles for core nav links
-  const navSubtitles = {
-    About: 'Senior engineers & bespoke enterprise solutions',
-    Services: 'Custom ERP, CRM, AI & cloud systems',
-    Industries: 'Manufacturing, retail, healthcare & more',
-    Portfolio: '50+ verified production client case studies',
-    Contact: 'Get in touch & receive a 24h custom proposal'
-  };
-
-  // Featured services icons mapping
-  const featuredServices = [
-    { title: 'AI Solutions', badge: 'AI', icon: Cpu, desc: 'Machine learning, predictive models & automated workflows' },
-    { title: 'ERP Development', badge: 'Core', icon: Layers, desc: 'End-to-end manufacturing, inventory & supply chain ERP' },
-    { title: 'CRM Solutions', badge: 'Growth', icon: Database, desc: 'Lead tracking, customer automation & sales pipelines' },
-    { title: 'Mobile App Dev', badge: 'Mobile', icon: Smartphone, desc: 'High-performance native iOS & Android applications' },
-    { title: 'Cloud & DevOps', badge: 'Cloud', icon: Cloud, desc: 'AWS/Azure migration, containerization & 24/7 uptime' },
-    { title: 'Custom Software', badge: 'Custom', icon: Sparkles, desc: 'Bespoke architecture tailored to unique enterprise workflows' },
-  ];
+  const currentYear = new Date().getFullYear();
 
   return (
     <AnimatePresence>
@@ -130,9 +128,9 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
             transition={{ type: 'spring', damping: 28, stiffness: 260 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* 1. Header: Logo + Close (Sticky) */}
+            {/* Header: Logo + Close */}
             <div className="mobile-nav-header">
-              <a href="#" className="mobile-nav-brand" onClick={(e) => handleLinkClick(e, '#')} aria-label="InfoDrill Home">
+              <a href="#" className="mobile-nav-brand" onClick={(e) => handleLinkClick(e, '#')} aria-label="INFODRILL Home">
                 <Logo size="md" />
               </a>
 
@@ -146,173 +144,126 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
               </button>
             </div>
 
-            {/* Scrollable Body Content */}
+            {/* Scrollable Content Styled Directly After Website Footer Reference (Photo 2) */}
             <div className="mobile-nav-scroll-body">
               
-              {/* 2. Main Navigation Links with Subtext */}
-              <section className="mobile-nav-section">
-                <span className="mobile-section-tag">MAIN NAVIGATION</span>
-                <nav className="mobile-nav-links" aria-label="Main Navigation">
-                  <ul role="list">
-                    {navigation.map((item) => (
-                      <li key={item.label}>
-                        <a
-                          href={item.href}
-                          className="mobile-nav-link"
-                          onClick={(e) => handleLinkClick(e, item.href)}
-                        >
-                          <div className="mobile-nav-link__text">
-                            <span className="mobile-nav-link__label">{item.label}</span>
-                            <span className="mobile-nav-link__sub">{navSubtitles[item.label] || 'Explore section'}</span>
-                          </div>
-                          <span className="mobile-nav-link__arrow" aria-hidden="true">
-                            <ArrowUpRight size={17} strokeWidth={2.4} />
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </section>
-
-              {/* 3. Core Capabilities & Featured Solutions */}
-              <section className="mobile-nav-section">
-                <div className="mobile-section-head-row">
-                  <span className="mobile-section-tag">CORE CAPABILITIES</span>
-                  <a href="#services" className="mobile-section-see-all" onClick={(e) => handleLinkClick(e, '#services')}>
-                    View All 12 →
-                  </a>
-                </div>
-                <div className="mobile-services-grid">
-                  {featuredServices.map((srv) => {
-                    const IconComponent = srv.icon;
-                    return (
+              {/* Column 2: Quick Links */}
+              <div className="drawer-nav-column">
+                <h3 className="drawer-nav-header">QUICK LINKS</h3>
+                <ul className="drawer-nav-list" role="list">
+                  {quickLinks.map((item) => (
+                    <li key={item.label} className="drawer-nav-item">
                       <a 
-                        key={srv.title} 
+                        href={item.href} 
+                        className="drawer-nav-link"
+                        onClick={(e) => handleLinkClick(e, item.href)}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Column 3: Services */}
+              <div className="drawer-nav-column">
+                <h3 className="drawer-nav-header">SERVICES</h3>
+                <ul className="drawer-nav-list" role="list">
+                  {services.map((service) => (
+                    <li key={service} className="drawer-nav-item">
+                      <a 
                         href="#services" 
-                        className="mobile-service-pill"
+                        className="drawer-nav-link"
                         onClick={(e) => handleLinkClick(e, '#services')}
                       >
-                        <div className="mobile-service-pill__icon">
-                          <IconComponent size={15} />
-                        </div>
-                        <div className="mobile-service-pill__info">
-                          <div className="mobile-service-pill__top">
-                            <strong className="mobile-service-pill__title">{srv.title}</strong>
-                            <span className="mobile-service-pill__badge">{srv.badge}</span>
-                          </div>
-                          <p className="mobile-service-pill__desc">{srv.desc}</p>
-                        </div>
+                        {service}
                       </a>
-                    );
-                  })}
-                </div>
-              </section>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              {/* 4. Industries Empowered (Interactive Chip Cloud) */}
-              <section className="mobile-nav-section">
-                <span className="mobile-section-tag">INDUSTRIES EMPOWERED</span>
-                <div className="mobile-chips-cloud">
-                  {siteConfig.industries.map((ind) => (
-                    <a
-                      key={ind.name}
-                      href="#industries"
-                      className="mobile-chip-tag"
-                      onClick={(e) => handleLinkClick(e, '#industries')}
-                    >
-                      <Building2 size={11} className="mobile-chip-icon" />
-                      <span>{ind.name}</span>
+              {/* Column 4: Contact Details */}
+              <div className="drawer-nav-column drawer-contact-column">
+                <h3 className="drawer-nav-header">CONTACT</h3>
+
+                <div className="drawer-contact-items-wrap">
+                  {/* Email */}
+                  <div className="drawer-contact-row">
+                    <Mail size={16} className="drawer-contact-icon" aria-hidden="true" />
+                    <a href={`mailto:${email}`} className="drawer-contact-link">
+                      {email}
                     </a>
-                  ))}
-                </div>
-              </section>
+                  </div>
 
-              {/* 5. Company Track Record / Stats Strip */}
-              <section className="mobile-nav-section">
-                <span className="mobile-section-tag">ENTERPRISE TRACK RECORD</span>
-                <div className="mobile-stats-row">
-                  {siteConfig.stats.map((st) => (
-                    <div key={st.label} className="mobile-stat-box">
-                      <strong className="mobile-stat-val">{st.value}</strong>
-                      <span className="mobile-stat-label">{st.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
+                  {/* Phone */}
+                  <div className="drawer-contact-row">
+                    <Phone size={16} className="drawer-contact-icon" aria-hidden="true" />
+                    <a href={`tel:${phone.replace(/\s+/g, '')}`} className="drawer-contact-link">
+                      {phone}
+                    </a>
+                  </div>
 
-              {/* 6. Primary Action CTA Button */}
-              <div className="mobile-nav-cta-wrapper">
+                  {/* Address */}
+                  <div className="drawer-contact-row drawer-contact-row--address">
+                    <MapPin size={16} className="drawer-contact-icon" aria-hidden="true" />
+                    <span className="drawer-address-text">
+                      {address}
+                    </span>
+                  </div>
+
+                  {/* Trust Badge */}
+                  <div className="drawer-trust-badge">
+                    <ShieldCheck size={16} className="drawer-trust-icon" aria-hidden="true" />
+                    <span>Gujarat &amp; India IT Excellence</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Primary Action Button */}
+              <div className="drawer-cta-section">
                 <a
                   href="#contact"
-                  className="mobile-nav-cta-btn"
+                  className="drawer-primary-btn"
                   onClick={(e) => handleLinkClick(e, '#contact')}
                 >
-                  <div className="mobile-nav-cta-btn__text">
-                    <span>GET STARTED WITH INFODRILL</span>
-                    <small>Get a custom plan within 24 hours</small>
-                  </div>
-                  <span className="mobile-nav-cta-btn__icon" aria-hidden="true">
-                    <ArrowUpRight size={18} strokeWidth={2.8} />
-                  </span>
+                  <span>GET STARTED</span>
+                  <ArrowRight size={16} />
                 </a>
               </div>
 
-              {/* 7. Direct Channels & Business Hours */}
-              <section className="mobile-nav-section mobile-nav-section--contact">
-                <div className="mobile-channels-card">
-                  <span className="mobile-channels-title">DIRECT CHANNELS &amp; CONTACT</span>
-
-                  <div className="mobile-channels-items">
-                    <a href={`tel:${phone.replace(/\s+/g, '')}`} className="mobile-channel-row">
-                      <div className="mobile-channel-row__icon">
-                        <Phone size={14} />
-                      </div>
-                      <div className="mobile-channel-row__text">
-                        <span className="mobile-channel-row__tag">PHONE</span>
-                        <strong className="mobile-channel-row__val">{phone}</strong>
-                      </div>
-                    </a>
-
-                    <a href={`mailto:${email}`} className="mobile-channel-row">
-                      <div className="mobile-channel-row__icon">
-                        <Mail size={14} />
-                      </div>
-                      <div className="mobile-channel-row__text">
-                        <span className="mobile-channel-row__tag">EMAIL</span>
-                        <strong className="mobile-channel-row__val">{email}</strong>
-                      </div>
-                    </a>
-
-                    <div className="mobile-channel-row">
-                      <div className="mobile-channel-row__icon">
-                        <MapPin size={14} />
-                      </div>
-                      <div className="mobile-channel-row__text">
-                        <span className="mobile-channel-row__tag">HEADQUARTERS</span>
-                        <span className="mobile-channel-row__val mobile-channel-row__val--address">
-                          {address}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mobile-channel-row">
-                      <div className="mobile-channel-row__icon">
-                        <Clock size={14} />
-                      </div>
-                      <div className="mobile-channel-row__text">
-                        <span className="mobile-channel-row__tag">WORKING HOURS</span>
-                        <span className="mobile-channel-row__val">{hours}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Guaranteed Response Pill */}
-                  <div className="mobile-response-guarantee">
-                    <span className="mobile-pulse-dot" aria-hidden="true" />
-                    <span>Guaranteed response within 24 hours with a clear roadmap</span>
-                  </div>
+              {/* Bottom Bar: Language Selector, Legal Links, Social Icons, Copyright */}
+              <div className="drawer-bottom-bar">
+                
+                {/* Language / Region */}
+                <div className="drawer-lang-tag">
+                  <Globe size={14} className="drawer-lang-icon" aria-hidden="true" />
+                  <span>India (English)</span>
+                  <ChevronDown size={13} aria-hidden="true" />
                 </div>
-              </section>
+
+                {/* Social Icons Cluster */}
+                <div className="drawer-social-cluster" aria-label="Social media channels">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="drawer-social-btn" aria-label="Facebook">
+                    <Facebook size={14} fill="currentColor" strokeWidth={0} />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="drawer-social-btn" aria-label="LinkedIn">
+                    <Linkedin size={14} fill="currentColor" strokeWidth={0} />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="drawer-social-btn" aria-label="Twitter">
+                    <Twitter size={14} fill="currentColor" strokeWidth={0} />
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="drawer-social-btn" aria-label="Instagram">
+                    <Instagram size={14} strokeWidth={2.2} />
+                  </a>
+                </div>
+
+                {/* Copyright */}
+                <div className="drawer-copyright-text">
+                  <span>© {currentYear} INFODRILL AI SOLUTIONS. All rights reserved.</span>
+                </div>
+
+              </div>
 
             </div>
           </motion.div>
