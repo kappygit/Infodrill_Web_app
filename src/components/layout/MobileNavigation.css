@@ -48,8 +48,8 @@
 
 .mobile-nav-brand img,
 .mobile-nav-brand .infodrill-brand-img {
-  height: 44px !important;
-  max-height: 44px !important;
+  height: 52px !important;
+  max-height: 52px !important;
   width: auto !important;
   object-fit: contain;
 }
