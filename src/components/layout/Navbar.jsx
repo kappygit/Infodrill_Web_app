@@ -28,7 +28,7 @@ export function Navbar() {
           <div className="notch-content">
             {/* Official InfoDrill Logo */}
             <a href="#" className="notch-logo" aria-label="INFODRILL AI SOLUTIONS Home">
-              <Logo size="sm" />
+              <Logo size="md" />
             </a>
 
             {/* Desktop Navigation Links */}

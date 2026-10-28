@@ -97,7 +97,7 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
             {/* Header: Logo + Close */}
             <div className="mobile-nav-header">
               <div className="mobile-nav-brand">
-                <Logo size="sm" />
+                <Logo size="md" />
               </div>
 
               <button

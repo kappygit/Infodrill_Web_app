@@ -128,7 +128,7 @@ export function Footer() {
             {/* Column 1: Brand Info */}
             <div className="footer-brand-column">
               <a href="#hero" className="footer-brand-logo" aria-label="INFODRILL AI SOLUTIONS">
-                <Logo size="md" />
+                <Logo size="lg" />
               </a>
               
               <p className="footer-brand-desc">

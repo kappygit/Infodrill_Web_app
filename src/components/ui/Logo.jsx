@@ -6,20 +6,22 @@ import React from 'react';
  */
 export function Logo({ 
   size = 'md', 
+  height: customHeight,
   showText = true, 
   light = false, 
   className = '', 
   style = {} 
 }) {
+  // Generous, prominent heights for strong brand visibility
   const heightMap = {
-    xs: 22,
-    sm: 28,
-    md: 36,
-    lg: 48,
-    xl: 60
+    xs: 28,
+    sm: 38,
+    md: 46,
+    lg: 58,
+    xl: 74
   };
 
-  const currentHeight = heightMap[size] || 36;
+  const currentHeight = customHeight || heightMap[size] || 46;
 
   // Standalone vector mark if text is hidden
   if (!showText) {
@@ -87,8 +89,9 @@ export function Logo({
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: size === 'sm' ? '8px' : '10px',
+        gap: '12px',
         textDecoration: 'none',
+        flexShrink: 0,
         ...style
       }}
     >
@@ -98,12 +101,11 @@ export function Logo({
         style={{
           height: `${currentHeight}px`,
           width: 'auto',
-          maxWidth: size === 'sm' ? '120px' : size === 'md' ? '150px' : '200px',
+          maxWidth: `${Math.round(currentHeight * 3.2)}px`,
           objectFit: 'contain',
           display: 'block'
         }}
         onError={(e) => {
-          // If image fails, fallback to vector + text
           e.currentTarget.style.display = 'none';
         }}
       />
