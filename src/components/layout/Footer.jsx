@@ -140,6 +140,67 @@ export function Footer() {
                 <span className="status-dot" aria-hidden="true" />
                 <span className="status-label">Engineering Systems: Active &amp; Online</span>
               </div>
+
+              {/* Verified Ratings (Glassdoor, Google, Clutch) */}
+              <div className="footer-ratings-card" aria-label="Verified client ratings on Glassdoor, Google, and Clutch">
+                {/* Glassdoor Rating */}
+                <a 
+                  href="https://www.glassdoor.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-rating-item"
+                  title="5.0 Star Rating on Glassdoor"
+                >
+                  <svg className="rating-star-icon" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                  <span className="rating-score">5.0</span>
+                  <span className="rating-brand-glassdoor">glassdoor</span>
+                </a>
+
+                <div className="footer-rating-divider" aria-hidden="true" />
+
+                {/* Google Rating */}
+                <a 
+                  href="https://www.google.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-rating-item"
+                  title="4.7 Star Rating on Google"
+                >
+                  <svg className="rating-star-icon" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                  <span className="rating-score">4.7</span>
+                  <span className="rating-brand-google">
+                    <span style={{ color: '#4285F4' }}>G</span>
+                    <span style={{ color: '#EA4335' }}>o</span>
+                    <span style={{ color: '#FBBC05' }}>o</span>
+                    <span style={{ color: '#4285F4' }}>g</span>
+                    <span style={{ color: '#34A853' }}>l</span>
+                    <span style={{ color: '#EA4335' }}>e</span>
+                  </span>
+                </a>
+
+                <div className="footer-rating-divider" aria-hidden="true" />
+
+                {/* Clutch Rating */}
+                <a 
+                  href="https://clutch.co" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-rating-item"
+                  title="5.0 Star Rating on Clutch"
+                >
+                  <svg className="rating-star-icon" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                  <span className="rating-score">5.0</span>
+                  <span className="rating-brand-clutch">
+                    Clut<span className="clutch-c-wrap">c<span className="clutch-dot" aria-hidden="true" /></span>h
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Column 2: Quick Links */}
