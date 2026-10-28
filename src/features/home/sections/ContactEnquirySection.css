@@ -197,5 +197,45 @@
 @media (max-width: 900px) {
   .contact-enquiry-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-enquiry-section {
+    padding: 60px 16px 80px;
+  }
+
+  .contact-section-header {
+    margin-bottom: 32px;
+  }
+
+  .contact-section-title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .contact-section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-info-card,
+  .contact-form-container {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .contact-info-card__title {
+    font-size: 1.25rem;
+  }
+
+  .contact-info-card__desc {
+    font-size: 0.9rem;
+    margin-bottom: 22px;
+  }
+
+  .contact-channel-item {
+    padding: 12px 14px;
+    gap: 12px;
   }
 }

@@ -170,7 +170,34 @@
 }
 
 @media (max-width: 640px) {
+  .industries-section {
+    padding: 60px 16px 70px;
+  }
+
+  .industries-header {
+    margin-bottom: 32px;
+  }
+
+  .industries-headline {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .industries-subtext {
+    font-size: 0.95rem;
+  }
+
   .industries-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .industry-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .industry-card__header {
+    margin-bottom: 18px;
   }
 }

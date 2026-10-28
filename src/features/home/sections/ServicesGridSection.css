@@ -202,7 +202,41 @@
 }
 
 @media (max-width: 640px) {
+  .services-section {
+    padding: 60px 16px;
+  }
+
+  .services-header {
+    margin-bottom: 32px;
+  }
+
+  .services-headline {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .services-subtext {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .services-filter-tabs {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .service-filter-btn {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+
   .services-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 22px 18px;
+    border-radius: 20px;
   }
 }

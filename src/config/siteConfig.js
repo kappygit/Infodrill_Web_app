@@ -3,6 +3,10 @@
  */
 export const siteConfig = {
   name: 'INFODRILL AI SOLUTIONS',
+  brand: {
+    name: 'INFODRILL AI SOLUTIONS',
+    tag: 'AI SOLUTIONS',
+  },
   tagline: 'IT Solutions for Modern Businesses',
   description: 'INFODRILL AI SOLUTIONS builds custom ERP, CRM, AI-powered, and enterprise software that streamlines operations and drives measurable growth for businesses across India.',
   contact: {

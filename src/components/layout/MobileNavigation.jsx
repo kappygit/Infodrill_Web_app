@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { X, ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '../ui/Button';
+import { AnimatePresence, motion } from 'framer-motion';
+import { X, ArrowRight, Sparkles, Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import './MobileNavigation.css';
 
 export function MobileNavigation({ isOpen, onClose, navigation }) {
   const drawerRef = useRef(null);
 
+  // Close on Escape & handle Tab trap
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
@@ -54,64 +55,138 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
     }
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  const handleLinkClick = (e, href) => {
+    onClose();
+    if (href.startsWith('#')) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  const brandName = siteConfig?.name || 'INFODRILL AI SOLUTIONS';
+  const phone = siteConfig?.contact?.phone || '+91 92135 32517';
+  const email = siteConfig?.contact?.email || 'infodrillaisolutions@gmail.com';
 
   return (
-    <div className="mobile-nav-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-      <div className="mobile-nav-drawer" ref={drawerRef} onClick={(e) => e.stopPropagation()}>
-        <div className="mobile-nav-header">
-          <div className="mobile-nav-brand">
-            <span className="mobile-nav-brand__name">{siteConfig.brand.name}</span>
-            <span className="mobile-nav-brand__tag">MENU</span>
-          </div>
-          <button
-            type="button"
-            className="mobile-nav-close"
-            onClick={onClose}
-            aria-label="Close navigation"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="mobile-nav-backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation"
+        >
+          <motion.div
+            className="mobile-nav-drawer"
+            ref={drawerRef}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 28, stiffness: 260 }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <X size={22} />
-          </button>
-        </div>
+            {/* Header: Logo + Close */}
+            <div className="mobile-nav-header">
+              <div className="mobile-nav-brand">
+                <div className="mobile-nav-logo-mark" aria-hidden="true">
+                  <svg width="24" height="18" viewBox="0 0 32 24" fill="none">
+                    <path d="M4 2L10 22H15L9 2H4Z" fill="#FFDE00" />
+                    <path d="M12 2L18 22H23L17 2H12Z" fill="#FFDE00" />
+                    <path d="M20 2L26 22H31L25 2H20Z" fill="#FFDE00" opacity="0.9" />
+                  </svg>
+                </div>
+                <div className="mobile-nav-brand-text">
+                  <span className="mobile-nav-brand__name">INFODRILL</span>
+                  <span className="mobile-nav-brand__tag">AI SOLUTIONS</span>
+                </div>
+              </div>
 
-        <nav className="mobile-nav-links">
-          <ul role="list">
-            {navigation.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="mobile-nav-link"
-                  onClick={onClose}
-                >
-                  <span>{item.label}</span>
-                  <ArrowRight size={16} className="mobile-nav-link__icon" />
+              <button
+                type="button"
+                className="mobile-nav-close"
+                onClick={onClose}
+                aria-label="Close navigation"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="mobile-nav-links" aria-label="Mobile Navigation List">
+              <ul role="list">
+                {navigation.map((item, index) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="mobile-nav-link"
+                      onClick={(e) => handleLinkClick(e, item.href)}
+                    >
+                      <div className="mobile-nav-link__content">
+                        <span className="mobile-nav-link__index">0{index + 1}</span>
+                        <span className="mobile-nav-link__label">{item.label}</span>
+                      </div>
+                      <ArrowRight size={18} className="mobile-nav-link__arrow" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Footer Area with Quick Contact & CTA */}
+            <div className="mobile-nav-footer">
+              <a
+                href="#contact"
+                className="mobile-nav-cta-btn"
+                onClick={(e) => handleLinkClick(e, '#contact')}
+              >
+                <Sparkles size={16} />
+                <span>Get Started Now</span>
+                <ArrowRight size={16} />
+              </a>
+
+              <div className="mobile-nav-quick-contacts">
+                <a href={`tel:${phone.replace(/\s+/g, '')}`} className="mobile-quick-item">
+                  <div className="mobile-quick-icon">
+                    <Phone size={14} />
+                  </div>
+                  <div className="mobile-quick-text">
+                    <span className="mobile-quick-label">Direct Phone</span>
+                    <span className="mobile-quick-val">{phone}</span>
+                  </div>
                 </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
-        <div className="mobile-nav-footer">
-          <Button
-            as="a"
-            href="#contact"
-            variant="primary"
-            size="md"
-            icon={Sparkles}
-            onClick={onClose}
-            style={{ width: '100%' }}
-          >
-            Request Enterprise Briefing
-          </Button>
-          <div className="mobile-nav-contact">
-            <p className="mobile-nav-contact__label">Direct Inquiries</p>
-            <a href={`mailto:${siteConfig.contact.email}`} className="mobile-nav-contact__email">
-              {siteConfig.contact.email}
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+                <a href={`mailto:${email}`} className="mobile-quick-item">
+                  <div className="mobile-quick-icon">
+                    <Mail size={14} />
+                  </div>
+                  <div className="mobile-quick-text">
+                    <span className="mobile-quick-label">Direct Email</span>
+                    <span className="mobile-quick-val">{email}</span>
+                  </div>
+                </a>
+
+                <div className="mobile-quick-item mobile-quick-item--address">
+                  <div className="mobile-quick-icon">
+                    <MapPin size={14} />
+                  </div>
+                  <div className="mobile-quick-text">
+                    <span className="mobile-quick-label">Headquarters</span>
+                    <span className="mobile-quick-val">Thaltej, Ahmedabad, Gujarat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
-

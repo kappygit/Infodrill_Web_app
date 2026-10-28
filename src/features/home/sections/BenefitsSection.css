@@ -274,36 +274,58 @@
 
 @media (max-width: 640px) {
   .benefits-section {
-    padding: 70px 16px 90px;
+    padding: 60px 16px 70px;
   }
 
   .benefits-headline {
-    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    line-height: 1.02;
+  }
+
+  .benefits-description {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .benefits-bullets {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .benefit-bullet-item {
+    font-size: 0.875rem;
   }
 
   .benefits-fanned-stage {
-    height: 420px;
+    height: 380px;
+    margin-top: 0;
   }
 
   .fanned-card {
-    width: 330px;
+    width: 300px;
+    max-width: calc(100vw - 32px);
   }
 
   .fanned-card__inner {
-    padding: 24px 20px 20px;
-    min-height: 250px;
+    padding: 20px 18px 18px;
+    min-height: 230px;
+    border-radius: 24px;
   }
 
   .fanned-card__title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   .fanned-card__text-content {
-    max-width: 220px;
+    max-width: 190px;
+  }
+
+  .fanned-card__desc {
+    font-size: 0.8125rem;
   }
 
   .fanned-card__illustration--finance svg {
-    width: 170px;
-    height: 145px;
+    width: 140px;
+    height: 120px;
   }
 }

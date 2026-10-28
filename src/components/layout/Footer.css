@@ -487,19 +487,24 @@
 }
 
 @media (max-width: 768px) {
+  .footer-sky-wrapper {
+    padding: 48px 12px 20px;
+  }
+
   .footer-cta-headline {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+    line-height: 1.05;
   }
 
   .footer-dark-card {
-    border-radius: 24px;
-    padding: 24px 20px 24px;
+    border-radius: 22px;
+    padding: 24px 18px 22px;
   }
 
   .footer-card-grid {
     grid-template-columns: 1fr;
     gap: 28px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .footer-card-bottom-bar {

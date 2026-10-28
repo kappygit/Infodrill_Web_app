@@ -3,6 +3,15 @@
     "hatchable": {
       "serverUrl": "https://hatchable.com/mcp",
       "url": "https://hatchable.com/mcp"
+    },
+    "gsd": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "-p",
+        "@opengsd/gsd-core",
+        "gsd-mcp-server"
+      ]
     }
   }
 }

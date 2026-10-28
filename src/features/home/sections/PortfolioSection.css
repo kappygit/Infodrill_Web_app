@@ -172,7 +172,34 @@
 }
 
 @media (max-width: 640px) {
+  .portfolio-section {
+    padding: 60px 16px;
+  }
+
+  .portfolio-header {
+    margin-bottom: 32px;
+  }
+
+  .portfolio-headline {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .portfolio-subtext {
+    font-size: 0.95rem;
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .portfolio-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
   }
 }

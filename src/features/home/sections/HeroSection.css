@@ -582,7 +582,7 @@
 @media (max-width: 768px) {
   .hero-scroll-wrapper {
     min-height: auto;
-    padding: 12px 14px 30px;
+    padding: 8px 10px 24px;
   }
 
   .hero-sticky-stage {
@@ -591,44 +591,121 @@
 
   .hero-container-card {
     border-radius: 28px;
-    padding: 40px 16px 20px;
+    padding: 76px 16px 24px;
     min-height: auto;
   }
 
+  .hero-rating-pill {
+    padding: 5px 12px;
+    margin-bottom: 18px;
+  }
+
+  .hero-rating-text {
+    font-size: 0.7rem;
+  }
+
   .hero-display-title {
-    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    font-size: clamp(2rem, 8.5vw, 2.85rem);
+    line-height: 1.02;
+    margin-bottom: 16px;
+    word-break: break-word;
   }
 
   .hero-title-line {
     white-space: normal;
   }
 
+  .hero-display-sub {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    padding: 0 6px;
+    margin-bottom: 22px;
+  }
+
+  .hero-pill-cta {
+    padding: 5px 18px 5px 5px;
+    font-size: 0.8125rem;
+  }
+
+  .hero-pill-cta__icon {
+    width: 36px;
+    height: 36px;
+  }
+
   .hero-visual-stage {
+    height: 380px;
+    margin-top: 16px;
+  }
+
+  .hero-concentric-rings {
+    width: 440px;
+    height: 440px;
+    bottom: -110px;
+  }
+
+  .ring-band--outer {
+    width: 420px;
     height: 420px;
+    border-width: 24px;
+  }
+
+  .ring-band--middle {
+    width: 330px;
+    height: 330px;
+    border-width: 20px;
+  }
+
+  .ring-band--inner {
+    width: 250px;
+    height: 250px;
+    border-width: 16px;
   }
 
   .hero-phone-container {
-    width: 270px;
-    height: 440px;
+    width: 250px;
+    height: 380px;
+    border-radius: 36px;
+    padding: 10px;
+  }
+
+  .phone-gauge-wrap {
+    width: 180px;
+    height: 180px;
+    margin-top: 16px;
+  }
+
+  .gauge-center-content {
+    top: 48%;
+  }
+
+  .gauge-percentage-number {
+    font-size: 2.2rem;
+  }
+
+  .gauge-percentage-sub {
+    font-size: 0.625rem;
   }
 
   .hero-float-card--artc {
-    left: -15px;
-    bottom: 20px;
-    min-width: 140px;
-    padding: 8px 12px;
+    left: -6px;
+    bottom: 24px;
+    min-width: 116px;
+    padding: 6px 10px;
+    border-radius: 12px;
   }
 
   .hero-float-card--expenses {
-    right: -15px;
-    bottom: 10px;
-    min-width: 125px;
-    padding: 8px 12px;
+    right: -6px;
+    bottom: 16px;
+    min-width: 110px;
+    padding: 6px 10px;
+    border-radius: 12px;
   }
 
   .hero-piggy-badge {
-    right: -10px;
-    width: 48px;
-    height: 48px;
+    right: -6px;
+    bottom: 110px;
+    width: 42px;
+    height: 42px;
   }
 }

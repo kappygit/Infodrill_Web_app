@@ -153,23 +153,83 @@
 /* Mobile Toggle */
 .notch-mobile-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #FFFFFF;
-  padding: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 180ms ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 640px) {
+.notch-mobile-toggle:hover,
+.notch-mobile-toggle:active {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
   .notch-links {
     display: none;
   }
 
   .notch-mobile-toggle {
     display: flex;
-    align-items: center;
+  }
+
+  .notch-content {
+    gap: 16px;
+    padding: 10px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-notch-header {
+    top: 10px;
+    padding: 0 14px;
+    width: 100%;
+  }
+
+  .top-notch-header--scrolled {
+    top: 10px;
+  }
+
+  .top-notch-bar {
+    width: 100%;
+    max-width: 480px;
     justify-content: center;
   }
 
   .notch-content {
-    gap: 20px;
-    padding: 10px 20px;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 9999px;
+    padding: 8px 12px 8px 16px;
+    gap: 10px;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .notch-fillet {
+    display: none !important;
+  }
+
+  .notch-cta-btn {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 370px) {
+  .notch-cta-btn {
+    padding: 6px 10px;
+    font-size: 0.72rem;
   }
 }

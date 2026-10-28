@@ -90,12 +90,45 @@
 }
 
 @media (max-width: 900px) {
+  .stats-section {
+    padding: 30px 16px 45px;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
 
 @media (max-width: 500px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px 12px;
+    border-radius: 18px;
+    gap: 10px;
+  }
+
+  .stat-card__icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    white-space: normal;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 360px) {
   .stats-grid {
     grid-template-columns: 1fr;
   }

@@ -256,6 +256,57 @@
 @media (max-width: 960px) {
   .about-container {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section {
+    padding: 60px 16px;
+  }
+
+  .about-headline {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .about-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .about-checklist {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .about-check-item {
+    font-size: 0.875rem;
+  }
+
+  .about-card-hero {
+    border-radius: 24px;
+    padding: 24px 18px 32px;
+  }
+
+  .about-floating-badge {
+    right: 10px;
+    bottom: -14px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  .badge-star-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .badge-highlight {
+    font-size: 0.95rem;
+  }
+
+  .badge-caption {
+    font-size: 0.65rem;
   }
 }

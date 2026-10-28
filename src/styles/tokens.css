@@ -52,6 +52,8 @@
   --container-max-width: 1260px;
   --container-padding: 24px;
   --nav-height: 54px;
+  --z-nav: 1000;
+  --z-modal: 999999;
 
   /* Radii */
   --radius-sm: 8px;

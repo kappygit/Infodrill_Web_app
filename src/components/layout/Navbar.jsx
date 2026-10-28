@@ -57,11 +57,11 @@ export function Navbar() {
             <button
               type="button"
               className="notch-mobile-toggle"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={() => setMobileMenuOpen(prev => !prev)}
               aria-label="Open navigation menu"
               aria-expanded={mobileMenuOpen}
             >
-              <Menu size={18} />
+              <Menu size={20} />
             </button>
           </div>
 

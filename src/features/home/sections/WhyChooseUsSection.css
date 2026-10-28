@@ -210,11 +210,47 @@
 }
 
 @media (max-width: 640px) {
+  .why-us-section {
+    padding: 60px 16px;
+  }
+
+  .why-us-header {
+    margin-bottom: 32px;
+  }
+
+  .why-us-headline {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  .why-us-subtext {
+    font-size: 0.95rem;
+  }
+
   .why-us-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
   }
+
+  .why-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .why-us-bottom-banner {
+    padding: 22px 18px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
   .why-us-banner-left {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
+  }
+
+  .why-banner-quote {
+    font-size: 0.9375rem;
   }
 }
