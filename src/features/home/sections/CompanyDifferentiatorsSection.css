@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Company Differentiators — Deep Tech Architectural Advantage
+   ========================================================================== */
+
+.why-choose-section {
+  padding: var(--space-20) 0;
+  background: transparent;
+  position: relative;
+}
+
+.why-choose-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-16);
+}
+
+.why-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #38BDF8;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.why-choose-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+}
+
+.why-choose-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #94A3B8;
+}
+
+/* 4-Card Grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8);
+  border-radius: 20px;
+  background: #090E1D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 36px -8px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  background: #0D1424;
+}
+
+.why-card--cyan:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+.why-card--emerald:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(16, 185, 129, 0.15);
+}
+
+.why-card--amber:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 158, 11, 0.15);
+}
+
+.why-card--indigo:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(99, 102, 241, 0.15);
+}
+
+.why-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.why-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.why-card--cyan .why-card__badge {
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.why-card--emerald .why-card__badge {
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.why-card--amber .why-card__badge {
+  color: #FBBF24;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.why-card--indigo .why-card__badge {
+  color: #A5B4FC;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.why-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.why-card--cyan .why-card__icon { color: #38BDF8; }
+.why-card--emerald .why-card__icon { color: #34D399; }
+.why-card--amber .why-card__icon { color: #FBBF24; }
+.why-card--indigo .why-card__icon { color: #818CF8; }
+
+.why-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: var(--space-4);
+}
+
+.why-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #94A3B8;
+  margin-bottom: var(--space-8);
+  flex: 1;
+}
+
+.why-card__stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.why-stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: #64748B;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.why-stat-val {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+/* Bottom Callout Banner */
+.why-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-8) var(--space-10);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(14, 22, 38, 0.8) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.why-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.why-banner__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.why-banner__sub {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: #94A3B8;
+}
+
+@media (max-width: 768px) {
+  .why-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

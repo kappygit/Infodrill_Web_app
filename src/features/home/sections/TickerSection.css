@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Ticker Section — Global Enterprise Client Trust Strip (Clean Light Aesthetic)
+   ========================================================================== */
+
+.ticker-section {
+  padding: 48px 0;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ticker-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.ticker-heading-wrap {
+  margin-bottom: 28px;
+}
+
+.ticker-heading-eyebrow {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.ticker-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.ticker-logos-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.client-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.85;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 200ms ease;
+  user-select: none;
+}
+
+.client-logo:hover {
+  opacity: 1;
+  background: #FFFFFF;
+  border-color: rgba(37, 99, 235, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* 1. SwitchMYLoan.in */
+.client-logo--switchmyloan {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.sml-text-1 {
+  color: #0F172A;
+}
+
+.sml-badge {
+  background: #F97316;
+  color: #FFFFFF;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin: 0 3px;
+}
+
+.sml-text-2 {
+  color: #2563EB;
+}
+
+/* 2. Colour Olive */
+.client-logo--colourolive {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #15803D;
+}
+
+/* 3. Paperchase */
+.client-logo--paperchase {
+  font-family: var(--font-heading);
+}
+
+.pc-text-wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.pc-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+
+.pc-sub {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #64748B;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* 4. EXILLAR */
+.client-logo--exillar {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: #2563EB;
+  letter-spacing: 0.06em;
+}
+
+/* 5. OnData */
+.client-logo--ondata {
+  font-family: var(--font-heading);
+}
+
+.od-text-wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.od-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0284C7;
+}
+
+.od-sub {
+  font-size: 0.6rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+/* 6. StepGroow */
+.client-logo--stepgroow {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.sg-step {
+  color: #0F172A;
+}
+
+.sg-slash {
+  color: #F97316;
+  font-weight: 800;
+  margin: 0 2px;
+}
+
+.sg-groow {
+  color: #2563EB;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .ticker-section {
+    padding: 36px 0;
+  }
+
+  .ticker-logos-grid {
+    gap: 0.75rem;
+  }
+}

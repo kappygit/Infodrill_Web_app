@@ -1,0 +1,10 @@
+export { HomePage } from './HomePage';
+export { HeroSection } from './sections/HeroSection';
+export { StatsSection } from './sections/StatsSection';
+export { AboutSection } from './sections/AboutSection';
+export { ServicesGridSection } from './sections/ServicesGridSection';
+export { IndustriesSection } from './sections/IndustriesSection';
+export { WhyChooseUsSection } from './sections/WhyChooseUsSection';
+export { PortfolioSection } from './sections/PortfolioSection';
+export { TestimonialsSection } from './sections/TestimonialsSection';
+export { ContactEnquirySection } from './sections/ContactEnquirySection';

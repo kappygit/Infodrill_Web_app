@@ -1,0 +1,265 @@
+/* ==========================================================================
+   Global Reset & Base Styles — Premium Smooth Motion Design System
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color-scheme: light;
+  scroll-behavior: auto; /* Managed by Lenis smooth scroll */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-page-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+p {
+  color: var(--color-text-body);
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Signature Arrow Pill Button — Organic Spring Physics & Micro-Interactions
+   ========================================================================== */
+
+.ref-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  color: #111111;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 24px 6px 6px;
+  border-radius: var(--radius-pill);
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: 
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    border-color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+.ref-pill-btn:hover {
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 
+    0 14px 30px -4px rgba(37, 99, 235, 0.2),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.ref-pill-btn:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.1s;
+}
+
+.ref-pill-btn__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-accent-blue);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+
+.ref-pill-btn:hover .ref-pill-btn__arrow {
+  transform: rotate(45deg) scale(1.06);
+}
+
+/* Orange variant for arrow */
+.ref-pill-btn--orange .ref-pill-btn__arrow {
+  background: var(--color-accent-orange);
+}
+
+/* Dark variant button */
+.ref-pill-btn--dark {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+.ref-pill-btn--dark .ref-pill-btn__arrow {
+  background: #FFFFFF;
+  color: #121212;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(37, 99, 235, 0.18);
+  color: #111111;
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Cinematic Scroll Reveal Motion with Soft Optical Focus Blur
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(32px);
+  transition: 
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Stagger Children within revealed sections */
+.revealed [data-stagger="1"] { transition-delay: 0.08s; }
+.revealed [data-stagger="2"] { transition-delay: 0.16s; }
+.revealed [data-stagger="3"] { transition-delay: 0.24s; }
+.revealed [data-stagger="4"] { transition-delay: 0.32s; }
+
+/* ==========================================================================
+   Continuous Ambient Keyframes — Keeps Visuals Alive & Floating
+   ========================================================================== */
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-gentle-reverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes shimmer-gleam {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Ambient Utility Classes */
+.animate-float {
+  animation: float-gentle 4.8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-gentle-reverse 5.4s ease-in-out 0.8s infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 150ms ease !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transform: none !important;
+  }
+}

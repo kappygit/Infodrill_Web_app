@@ -1,0 +1,634 @@
+/* ==========================================================================
+   Hero Section — Scroll-Driven Smooth Scroller Animation & Ambient Float
+   ========================================================================== */
+
+.hero-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  padding: 16px 20px 40px;
+  background-color: #FFFFFF;
+}
+
+.hero-sticky-stage {
+  position: sticky;
+  top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Warm Peach / Apricot Hero Card */
+.hero-container-card {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  background: radial-gradient(circle at 50% 25%, #FFF6F0 0%, #FEEAE0 60%, #FBD9C8 100%);
+  border-radius: 40px;
+  padding: 60px 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.03);
+  min-height: 820px;
+}
+
+/* ==========================================================================
+   Header Content: Rating Pill, Bold Title, Subtitle, CTA
+   ========================================================================== */
+
+.hero-header-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* 4.9/5.0 TRUSTED BY WORLDWIDE Pill Badge */
+.hero-rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.hero-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+}
+
+.hero-rating-text {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #1F2937;
+  text-transform: uppercase;
+}
+
+/* Bold Condensed Display Headline */
+.hero-display-title {
+  font-family: 'Oswald', 'Outfit', -apple-system, sans-serif;
+  font-size: clamp(3rem, 7.2vw, 6.2rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+  color: #111111;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Subtitle */
+.hero-display-sub {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.55;
+  color: #4B5563;
+  max-width: 580px;
+  margin: 0 auto 28px;
+  font-weight: 400;
+}
+
+/* Signature Pill CTA Button (GET STARTED ↗) */
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.hero-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 24px 6px 6px;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-pill-cta:hover {
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 16px 32px -6px rgba(37, 99, 235, 0.25), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.hero-pill-cta__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-pill-cta:hover .hero-pill-cta__icon {
+  transform: rotate(45deg) scale(1.06);
+}
+
+/* ==========================================================================
+   Visual Stage: Concentric Background Arcs & Rising Phone
+   ========================================================================== */
+
+.hero-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+/* Concentric Colored Arches in Background */
+.hero-concentric-rings {
+  position: absolute;
+  bottom: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 780px;
+  height: 780px;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.ring-band {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.ring-band--outer {
+  width: 760px;
+  height: 760px;
+  border: 48px solid rgba(192, 132, 252, 0.35);
+  box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+.ring-band--middle {
+  width: 620px;
+  height: 620px;
+  border: 44px solid rgba(251, 146, 60, 0.38);
+}
+
+.ring-band--inner {
+  width: 490px;
+  height: 490px;
+  border: 40px solid rgba(254, 215, 170, 0.5);
+}
+
+/* ==========================================================================
+   Rising Smartphone Mockup
+   ========================================================================== */
+
+.hero-phone-container {
+  position: relative;
+  width: 320px;
+  height: 520px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hero-phone-body {
+  width: 100%;
+  height: 100%;
+  background: #090D16;
+  border-radius: 46px;
+  padding: 10px;
+  box-shadow: 
+    0 35px 80px -15px rgba(15, 23, 42, 0.45),
+    0 0 0 2px #1E293B,
+    inset 0 0 0 2px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Screen Top Bar */
+.phone-top-bar {
+  height: 38px;
+  background-color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 4;
+}
+
+.phone-clock-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.phone-island-pill {
+  width: 82px;
+  height: 22px;
+  background-color: #000000;
+  border-radius: 20px;
+  margin-top: 1px;
+}
+
+.phone-signal-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar-signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 10px;
+}
+.bar-signal i {
+  display: block;
+  width: 2.2px;
+  background: #FFFFFF;
+  border-radius: 1px;
+}
+.bar-signal i:nth-child(1) { height: 3.5px; }
+.bar-signal i:nth-child(2) { height: 6px; }
+.bar-signal i:nth-child(3) { height: 8.5px; }
+.bar-signal i:nth-child(4) { height: 11px; }
+
+.battery-glyph {
+  width: 19px;
+  height: 10px;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 3px;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.battery-glyph::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 2.5px;
+  width: 2px;
+  height: 3px;
+  background: #FFFFFF;
+  border-radius: 0 1px 1px 0;
+}
+
+.battery-level {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 1px;
+}
+
+/* Phone Screen Canvas */
+.phone-screen-canvas {
+  flex: 1;
+  background: linear-gradient(180deg, #38BDF8 0%, #0EA5E9 45%, #0284C7 85%, #0369A1 100%);
+  padding: 16px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Semicircular Radial Speedometer Gauge */
+.phone-gauge-container {
+  position: relative;
+  width: 180px;
+  height: 110px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gauge-ticks-arc {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.gauge-tick {
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  border-radius: 4px;
+  transform-origin: center bottom;
+  left: -3px;
+  bottom: 0;
+}
+
+.gauge-tick--active {
+  background-color: #FFDE00;
+  box-shadow: 0 0 8px rgba(255, 222, 0, 0.6);
+}
+
+.gauge-tick--inactive {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.gauge-center-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.gauge-percentage-number {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gauge-percentage-sub {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.phone-inner-backdrop {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.25) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Overlapping Floating Cards with Ambient Float Physics
+   ========================================================================== */
+
+.hero-float-card {
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 12px 18px;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* Left Card: Artc F... */
+.hero-float-card--artc {
+  bottom: 30px;
+  left: -80px;
+  gap: 12px;
+  min-width: 175px;
+}
+
+.artc-blue-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.artc-text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.artc-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.15;
+}
+
+.artc-date {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+/* Right Card: Expenses 85% */
+.hero-float-card--expenses {
+  bottom: 15px;
+  right: -60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 150px;
+  padding: 12px 16px;
+}
+
+.expenses-text-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.expenses-tag {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.expenses-val {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #2563EB;
+}
+
+.expenses-mini-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 26px;
+  width: 100%;
+}
+
+.mini-bar {
+  flex: 1;
+  background-color: #CBD5E1;
+  border-radius: 3px;
+  min-width: 5px;
+}
+
+.mini-bar--highlight {
+  background-color: #2563EB;
+}
+
+/* Floating Piggy Bank Badge (Right) */
+.hero-piggy-badge {
+  position: absolute;
+  top: 60%;
+  right: -95px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 16px 35px -6px rgba(37, 99, 235, 0.45),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 3px solid #FFFFFF;
+  z-index: 6;
+  cursor: pointer;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-display-title {
+    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  }
+
+  .hero-float-card--artc {
+    left: -40px;
+  }
+
+  .hero-float-card--expenses {
+    right: -30px;
+  }
+
+  .hero-piggy-badge {
+    right: -45px;
+  }
+
+  .hero-concentric-rings {
+    width: 640px;
+    height: 640px;
+  }
+  .ring-band--outer { width: 620px; height: 620px; }
+  .ring-band--middle { width: 500px; height: 500px; }
+  .ring-band--inner { width: 390px; height: 390px; }
+}
+
+@media (max-width: 768px) {
+  .hero-scroll-wrapper {
+    min-height: auto;
+    padding: 12px 14px 30px;
+  }
+
+  .hero-sticky-stage {
+    position: static;
+  }
+
+  .hero-container-card {
+    border-radius: 28px;
+    padding: 40px 16px 20px;
+    min-height: auto;
+  }
+
+  .hero-display-title {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+  }
+
+  .hero-title-line {
+    white-space: normal;
+  }
+
+  .hero-visual-stage {
+    height: 420px;
+  }
+
+  .hero-phone-container {
+    width: 270px;
+    height: 440px;
+  }
+
+  .hero-float-card--artc {
+    left: -15px;
+    bottom: 20px;
+    min-width: 140px;
+    padding: 8px 12px;
+  }
+
+  .hero-float-card--expenses {
+    right: -15px;
+    bottom: 10px;
+    min-width: 125px;
+    padding: 8px 12px;
+  }
+
+  .hero-piggy-badge {
+    right: -10px;
+    width: 48px;
+    height: 48px;
+  }
+}

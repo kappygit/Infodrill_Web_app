@@ -1,0 +1,85 @@
+:root {
+  /* ==========================================================================
+     Reference Design System — Premium Warm Pastel & Bold Condensed Neo-Grotesk
+     Directly matched to provided reference UI screenshots
+     ========================================================================== */
+
+  /* Surface Colors */
+  --color-page-bg: #FFFFFF;
+  --color-hero-bg: #FDECE2;
+  --color-card-peach: #FEEAE0;
+  --color-card-blue: #E0F2FE;
+  --color-card-purple: #F3E8FF;
+  --color-card-yellow: #FEF9C3;
+  --color-card-white: #FFFFFF;
+  --color-dark-notch: #121212;
+
+  /* Typography Colors */
+  --color-text-main: #111111;
+  --color-text-heading: #121212;
+  --color-text-body: #555555;
+  --color-text-muted: #737373;
+  --color-text-light: #9CA3AF;
+  --color-text-white: #FFFFFF;
+
+  /* Key Accents from Reference */
+  --color-accent-blue: #2563EB;
+  --color-accent-blue-hover: #1D4ED8;
+  --color-accent-blue-light: #EFF6FF;
+  
+  --color-accent-orange: #F97316;
+  --color-accent-purple: #A855F7;
+  --color-accent-yellow: #FFDE00;
+  --color-accent-gold: #F59E0B;
+  --color-accent-green: #10B981;
+
+  /* Unified Typography System */
+  --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Typography Scale */
+  --font-size-hero: clamp(2.75rem, 6.5vw, 5.25rem);
+  --font-size-section: clamp(2.25rem, 4.8vw, 3.85rem);
+  --font-size-subhead: clamp(1.4rem, 2.5vw, 2.1rem);
+  --font-size-card-title: 1.25rem;
+  --font-size-body: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  /* Spacing */
+  --container-max-width: 1260px;
+  --container-padding: 24px;
+  --nav-height: 54px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-hero: 40px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* Standard Spacing System */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 20px 45px -10px rgba(0, 0, 0, 0.1);
+  --shadow-phone: 0 35px 80px -15px rgba(0, 0, 0, 0.22);
+}

@@ -1,0 +1,261 @@
+/* ==========================================================================
+   About Section — Reference Harmonized Aesthetic (Peach & Clean Cards)
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 24px;
+  background-color: #FFFFFF;
+}
+
+.about-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #111827;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-blue {
+  color: #2563EB !important;
+}
+
+.about-paragraph {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: #374151;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.about-paragraph--sub {
+  color: #6B7280;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+/* Checklist Grid */
+.about-checklist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.about-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.check-icon {
+  color: #2563EB;
+  flex-shrink: 0;
+}
+
+.about-cta-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* Right Stage */
+.about-visual-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-card-hero {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 32px;
+  background-color: var(--color-card-peach, #FEEAE0);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  padding: 36px 30px;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.about-arch-preview {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.arch-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.arch-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot--red { background: #EF4444; }
+.dot--yellow { background: #F59E0B; }
+.dot--green { background: #10B981; }
+
+.arch-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.arch-workflow-box {
+  background: #F8FAFC;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.workflow-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #111827;
+  text-transform: uppercase;
+}
+
+.workflow-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.wf-metric {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.wf-lbl {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.wf-val {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #2563EB;
+}
+
+.arch-quote-box {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4B5563;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 3px solid #2563EB;
+}
+
+/* Badge on image: 5+ Years of Excellence */
+.about-floating-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  background: #111827;
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-star-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFDE00;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-highlight {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.badge-caption {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}

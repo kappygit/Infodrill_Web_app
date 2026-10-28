@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Badge Component — Clean Flat Surface
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--cyan {
+  color: #0369A1;
+  background: #E0F2FE;
+}
+
+.badge--indigo {
+  color: #1D4ED8;
+  background: #EFF6FF;
+}
+
+.badge--emerald {
+  color: #15803D;
+  background: #DCFCE7;
+}
+
+.badge--amber {
+  color: #B45309;
+  background: #FEF3C7;
+}
+
+.badge--neutral {
+  color: var(--color-text-secondary);
+  background: #F1F5F9;
+}

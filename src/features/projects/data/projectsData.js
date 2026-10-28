@@ -1,0 +1,58 @@
+export const projectsData = [
+  {
+    id: 'apex-logistics',
+    title: 'Apex Global Supply Chain',
+    category: 'ERPNext & Process Automation',
+    tag: 'ENTERPRISE DEPLOYMENT',
+    summary: 'Consolidated three disjointed legacy systems into an automated ERPNext core, reducing inventory sync discrepancies from days to seconds.',
+    metrics: [
+      { label: 'Sync Latency', value: '450ms' },
+      { label: 'Reconciliation', value: '100%' },
+      { label: 'Daily Shipments', value: '80K+' },
+    ],
+    technologies: ['ERPNext', 'Frappe', 'Python', 'Redis', 'PostgreSQL'],
+    accentColor: '#38BDF8',
+  },
+  {
+    id: 'finpulse-ai',
+    title: 'FinPulse Intelligence Engine',
+    category: 'Autonomous AI & RAG',
+    tag: 'FINANCIAL DATA',
+    summary: 'Architected a private, multi-agent RAG pipeline extracting structured investment signals from thousands of quarterly filings in real-time.',
+    metrics: [
+      { label: 'Query Response', value: '<1.2s' },
+      { label: 'Document Corpus', value: '2.5M+' },
+      { label: 'Audit Accuracy', value: '99.8%' },
+    ],
+    technologies: ['FastAPI', 'Qdrant Vector DB', 'React.js', 'LlamaIndex'],
+    accentColor: '#2563EB',
+  },
+  {
+    id: 'medstream-clinical',
+    title: 'MedStream Operational Orchestrator',
+    category: 'Healthcare Multi-Agent Platform',
+    tag: 'HIPAA COMPLIANT',
+    summary: 'Designed an event-driven workflow engine automating patient intake records, insurance authorizations, and scheduling queues.',
+    metrics: [
+      { label: 'Manual Hours Saved', value: '3,200/mo' },
+      { label: 'Claim Approval', value: '+34%' },
+      { label: 'Security Grade', value: 'SOC2 / HIPAA' },
+    ],
+    technologies: ['React 18', 'Node.js', 'AWS ECS', 'KMS Encryption'],
+    accentColor: '#34D399',
+  },
+  {
+    id: 'omni-retail',
+    title: 'OmniRetail Commerce Infrastructure',
+    category: 'Modern Frontend & Microservices',
+    tag: 'HIGH SCALE',
+    summary: 'Re-engineered high-traffic commerce interfaces with a feature-based React architecture, maintaining sub-100ms interaction latency under flash load.',
+    metrics: [
+      { label: 'Lighthouse Score', value: '98/100' },
+      { label: 'P99 Latency', value: '85ms' },
+      { label: 'Concurrent Users', value: '120K' },
+    ],
+    technologies: ['React.js', 'Vite', 'Vanilla CSS Tokens', 'Cloudflare Workers'],
+    accentColor: '#F59E0B',
+  },
+];

@@ -1,0 +1,515 @@
+/* ==========================================================================
+   Footer — Sky Blue Gradient Frame with Rounded Dark Card
+   Branded for INFODRILL AI SOLUTIONS (Ahmedabad, India)
+   ========================================================================== */
+
+.footer-sky-wrapper {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #E0F2FE 0%, #BAE6FD 20%, #38BDF8 60%, #0284C7 100%);
+  padding: 80px 24px 32px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-sky-inner {
+  width: 100%;
+  max-width: 1360px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Top CTA Row: Headline (Left) & Work Email Pill Input (Right)
+   ========================================================================== */
+
+.footer-top-cta-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+  padding: 0 8px;
+}
+
+/* Bold Condensed Headline */
+.footer-cta-headline {
+  font-family: 'Oswald', 'Outfit', -apple-system, sans-serif;
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.015em;
+  color: #0F172A;
+  text-transform: uppercase;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* Work Email Input Box */
+.footer-email-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.footer-email-label {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #334155;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-left: 6px;
+}
+
+.footer-email-form {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 4px 6px 4px 20px;
+  min-width: 340px;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.footer-email-form:focus-within {
+  box-shadow: 0 12px 30px -4px rgba(37, 99, 235, 0.25);
+}
+
+.footer-email-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #0F172A;
+  padding: 8px 6px 8px 0;
+}
+
+.footer-email-input::placeholder {
+  color: #64748B;
+}
+
+.footer-email-input--success {
+  color: #10B981;
+  font-weight: 700;
+}
+
+.footer-email-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-email-submit-btn:hover:not(:disabled) {
+  background-color: #1D4ED8;
+  transform: scale(1.06);
+}
+
+.footer-email-submit-btn:hover:not(:disabled) svg {
+  transform: rotate(45deg);
+}
+
+.footer-email-submit-btn svg {
+  transition: transform 0.25s ease;
+}
+
+/* ==========================================================================
+   Big Rounded Dark Card
+   ========================================================================== */
+
+.footer-dark-card {
+  background-color: #0C0E12;
+  border-radius: 32px;
+  padding: 40px 52px 34px;
+  box-shadow: 
+    0 30px 70px -15px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  will-change: transform;
+}
+
+/* Subtle Top Divider Line */
+.footer-card-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 38px;
+}
+
+/* 4-Column Content Layout: Brand (1.6fr) | Quick Links (1fr) | Services (1.15fr) | Contact (1.35fr) */
+.footer-card-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.15fr 1.35fr;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 46px;
+}
+
+/* Column 1: Brand Info */
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 340px;
+}
+
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease;
+}
+
+.footer-brand-logo:hover {
+  transform: scale(1.02);
+}
+
+.footer-logo-mark {
+  display: flex;
+  align-items: center;
+}
+
+.footer-brand-name-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-brand-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+.footer-brand-tag {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: #38BDF8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-brand-desc {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: #A1A1AA;
+  margin: 0 0 20px;
+}
+
+/* Status Pill */
+.footer-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 5px 14px;
+  border-radius: 9999px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+.status-label {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  color: #34D399;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Nav Columns (Quick Links, Services, Contact) */
+.footer-nav-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav-header {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-nav-item .footer-nav-link {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8875rem;
+  font-weight: 500;
+  color: #A1A1AA;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav-item .footer-nav-link:hover {
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+/* Contact Column */
+.footer-contact-items-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8875rem;
+  color: #A1A1AA;
+  line-height: 1.5;
+}
+
+.contact-icon {
+  color: #38BDF8;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-contact-link {
+  color: #D4D4D8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  word-break: break-all;
+}
+
+.footer-contact-link:hover {
+  color: #38BDF8;
+}
+
+.footer-address-text {
+  color: #D4D4D8;
+  line-height: 1.45;
+}
+
+.footer-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+.trust-icon {
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Bottom Bar inside Dark Card
+   ========================================================================== */
+
+.footer-card-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Language Selector */
+.footer-lang-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #D4D4D8;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.footer-lang-dropdown:hover {
+  color: #FFFFFF;
+}
+
+.lang-icon {
+  color: #38BDF8;
+}
+
+.lang-arrow {
+  color: #71717A;
+}
+
+/* Center Copyright & Legal Links */
+.footer-copyright-statement {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #A1A1AA;
+}
+
+.footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-legal-link {
+  color: #A1A1AA;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+  color: #FFFFFF;
+}
+
+.footer-legal-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Right Social Clusters */
+.footer-social-cluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #D4D4D8;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-pill-btn:hover {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1140px) {
+  .footer-card-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand-column {
+    max-width: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-sky-wrapper {
+    padding: 60px 18px 24px;
+  }
+
+  .footer-top-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-email-block {
+    width: 100%;
+  }
+
+  .footer-email-form {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .footer-dark-card {
+    padding: 32px 32px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-cta-headline {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .footer-dark-card {
+    border-radius: 24px;
+    padding: 24px 20px 24px;
+  }
+
+  .footer-card-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+
+  .footer-card-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-social-cluster {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

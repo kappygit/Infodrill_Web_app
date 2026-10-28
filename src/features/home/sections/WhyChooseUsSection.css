@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Why Choose Us Section — 6 Differentiators & Bottom Banner
+   ========================================================================== */
+
+.why-us-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 24px;
+  background-color: #F8FAFC;
+}
+
+.why-us-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.why-us-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 56px;
+}
+
+.why-us-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #111827;
+  text-transform: uppercase;
+  margin: 12px 0 16px;
+}
+
+.why-us-subtext {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #4B5563;
+}
+
+/* 6 Grid */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.why-card {
+  border-radius: 26px;
+  padding: 34px 28px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: 
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.why-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 
+    0 22px 45px -10px rgba(37, 99, 235, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.why-card__icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #FEEAE0;
+  color: #F97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 200ms ease;
+}
+
+.why-card:nth-child(2) .why-card__icon-box {
+  background: #E0F2FE;
+  color: #0284C7;
+}
+
+.why-card:nth-child(3) .why-card__icon-box {
+  background: #F3E8FF;
+  color: #9333EA;
+}
+
+.why-card:nth-child(4) .why-card__icon-box {
+  background: #FEF9C3;
+  color: #CA8A04;
+}
+
+.why-card:nth-child(5) .why-card__icon-box {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.why-card:nth-child(6) .why-card__icon-box {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.why-card:hover .why-card__icon-box {
+  transform: scale(1.08);
+}
+
+.why-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.why-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* Bottom Banner */
+.why-us-bottom-banner {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 28px;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.why-us-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.happy-clients-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FEF9C3;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  border-radius: var(--radius-full);
+  padding: 8px 20px 8px 10px;
+  flex-shrink: 0;
+}
+
+.happy-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #111827;
+  color: #FFDE00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.happy-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.happy-num {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #111827;
+  letter-spacing: 0.02em;
+}
+
+.happy-sub {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: #713F12;
+  font-weight: 700;
+}
+
+.why-banner-quote {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why-us-bottom-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-us-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-us-banner-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Testimonial Section — Rajesh Patel, Patel Textiles Ltd.
+   ========================================================================== */
+
+.testimonial-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 24px 100px;
+  background-color: #FFFFFF;
+}
+
+.testimonial-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  border-radius: 36px;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  background: var(--color-card-purple, #F3E8FF);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 16px 45px -12px rgba(168, 85, 247, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-header {
+  margin-bottom: 20px;
+}
+
+.testimonial-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 900;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  margin: 8px 0 0;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.testimonial-quote {
+  position: relative;
+  max-width: 780px;
+  margin: 0 0 36px;
+}
+
+.quote-mark {
+  color: #A855F7;
+  opacity: 0.35;
+  margin-bottom: 12px;
+}
+
+.testimonial-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2563EB;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.author-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #111827;
+  letter-spacing: -0.01em;
+}
+
+.author-role {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: #4B5563;
+}
+
+.author-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+}

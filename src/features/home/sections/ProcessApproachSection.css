@@ -1,0 +1,159 @@
+/* ==========================================================================
+   Process Approach Section — Deep Tech Delivery Lifecycle
+   ========================================================================== */
+
+.process-section {
+  position: relative;
+  padding: var(--space-20) 0;
+  background: transparent;
+}
+
+.process-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-16);
+}
+
+.process-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #38BDF8;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.process-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+}
+
+.process-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #94A3B8;
+}
+
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  position: relative;
+}
+
+.process-step-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-8);
+  border-radius: 20px;
+  background: #090E1D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 16px 36px -8px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  background: #0D1424;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.process-step-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.process-step-card__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #38BDF8;
+}
+
+.process-step-card__num {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: -0.02em;
+}
+
+.process-step-card__subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #38BDF8;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.process-step-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+}
+
+.process-step-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin-bottom: var(--space-6);
+  flex-grow: 1;
+}
+
+.process-step-card__deliverable {
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.deliverable-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: #64748B;
+  letter-spacing: 0.06em;
+}
+
+.deliverable-value {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #34D399;
+}
+
+@media (max-width: 1080px) {
+  .process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
