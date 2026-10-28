@@ -46,6 +46,14 @@
   gap: 12px;
 }
 
+.mobile-nav-brand img,
+.mobile-nav-brand .infodrill-brand-img {
+  height: 44px !important;
+  max-height: 44px !important;
+  width: auto !important;
+  object-fit: contain;
+}
+
 .mobile-nav-logo-mark {
   display: flex;
   align-items: center;
