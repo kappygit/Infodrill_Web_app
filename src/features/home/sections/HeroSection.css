@@ -246,12 +246,13 @@
 
 /* Screen Top Bar */
 .phone-top-bar {
+  position: relative;
   height: 38px;
   background-color: #38BDF8;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 18px;
   border-top-left-radius: 36px;
   border-top-right-radius: 36px;
   color: #FFFFFF;
@@ -265,14 +266,20 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  z-index: 2;
 }
 
 .phone-island-pill {
-  width: 82px;
-  height: 22px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 20px;
   background-color: #000000;
   border-radius: 20px;
-  margin-top: 1px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .phone-signal-icons {
@@ -668,6 +675,16 @@
     height: 380px;
     border-radius: 36px;
     padding: 10px;
+  }
+
+  .phone-top-bar {
+    padding: 0 14px;
+    height: 36px;
+  }
+
+  .phone-island-pill {
+    width: 68px;
+    height: 18px;
   }
 
   .phone-gauge-wrap {

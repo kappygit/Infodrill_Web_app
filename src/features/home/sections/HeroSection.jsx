@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ArrowUpRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import './HeroSection.css';
 
 export function HeroSection() {
@@ -95,21 +95,6 @@ export function HeroSection() {
               Easily adapt to changes and scale your operations with our flexible
               infrastructure, designed to support your business growth.
             </motion.p>
-
-            {/* 4. Action Button: GET STARTED ↗ */}
-            <motion.div 
-              className="hero-actions-row"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <a href="#contact" className="hero-pill-cta">
-                <span className="hero-pill-cta__icon" aria-hidden="true">
-                  <ArrowUpRight size={18} strokeWidth={2.8} />
-                </span>
-                <span>GET STARTED</span>
-              </a>
-            </motion.div>
           </div>
 
           {/* ====================================================================
