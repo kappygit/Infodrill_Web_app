@@ -1,0 +1,363 @@
+/* ==========================================================================
+   Laptop Mockup Component Styling — InfoDrill AI Solutions
+   Butter-Smooth Clamshell Open Animation & Pure scale(1.06) Hover Zoom
+   ========================================================================== */
+
+.laptop-mockup-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  perspective: 1600px; /* Perspective on wrapper only as requested */
+  perspective-origin: 50% 85%;
+}
+
+/* Ambient Purple/Indigo Glow */
+.laptop-ambient-glow {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 72%);
+  filter: blur(44px);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Flat Front-Facing Chassis (No skew/tilt, scales 1.06 smoothly on hover when open) */
+.laptop-flat-chassis {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Screen Lid with Ultra-Thin Dark Bezel & 3D Hinge Origin at Bottom Center */
+.laptop-lid {
+  position: relative;
+  background: #0B0F19;
+  border: 1.5px solid #1E293B;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  padding: 5px 6px 6px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: center bottom;
+  -webkit-transform-origin: center bottom;
+  transform: rotateX(-90deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.16),
+    0 10px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Opened State: Smoothly rotates up to flat front-facing 0deg */
+.laptop-mockup-wrapper--opened .laptop-lid {
+  transform: rotateX(0deg);
+}
+
+/* Top Bezel Bar with Center Camera Dot */
+.laptop-bezel-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8px;
+  margin-bottom: 3px;
+}
+
+.laptop-camera-lens {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1E293B;
+  border: 1px solid #334155;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.laptop-camera-lens::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: #6366F1;
+  opacity: 0.6;
+}
+
+/* Screen Display Frame: Exactly 16:9, white background, no crop */
+.laptop-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #FFFFFF;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: zoom-in;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.laptop-screen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  user-select: none;
+  background: #FFFFFF;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Dark Screen Shade: Simulates screen backlight turning on as lid opens */
+.laptop-screen-shade {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+.laptop-mockup-wrapper--opened .laptop-screen-shade {
+  opacity: 0;
+}
+
+/* Small Zoom Icon in Top-Right Corner (Visible on Hover Only) */
+.laptop-zoom-corner-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.laptop-screen:hover .laptop-zoom-corner-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MacBook-Style Aluminum Base & Thumb Notch */
+.laptop-base-top {
+  position: relative;
+  width: calc(100% + 28px);
+  left: -14px;
+  height: 12px;
+  background: linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 35%, #94A3B8 100%);
+  border-radius: 2px 2px 7px 7px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.laptop-thumb-notch {
+  width: 64px;
+  height: 5px;
+  background: #0B0F19;
+  border-radius: 0 0 6px 6px;
+}
+
+.laptop-base-lip {
+  width: calc(100% + 14px);
+  margin: 0 auto;
+  height: 4px;
+  background: #0B0F19;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 
+    0 24px 48px -10px rgba(15, 23, 42, 0.26),
+    0 10px 24px -5px rgba(79, 70, 229, 0.16);
+  transition: box-shadow 0.4s ease;
+}
+
+/* ==========================================================================
+   Hover Zoom: scale(1.06) smoothly only AFTER lid is fully open
+   ========================================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .laptop-mockup-wrapper--ready:hover .laptop-flat-chassis {
+    transform: scale(1.06);
+  }
+
+  .laptop-mockup-wrapper--ready:hover .laptop-ambient-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12);
+    filter: blur(52px);
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.28) 0%, rgba(99, 102, 241, 0.14) 50%, transparent 72%);
+  }
+
+  .laptop-mockup-wrapper--ready:hover .laptop-base-lip {
+    box-shadow: 
+      0 32px 64px -12px rgba(15, 23, 42, 0.36),
+      0 16px 36px -6px rgba(79, 70, 229, 0.28);
+  }
+}
+
+/* ==========================================================================
+   Floating Chips (Desktop Only, Fades in After Opening)
+   ========================================================================== */
+
+.laptop-floating-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 15px;
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  z-index: 5;
+  pointer-events: auto;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease 1.35s, transform 0.45s ease 1.35s;
+}
+
+.laptop-mockup-wrapper--opened .laptop-floating-chip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chip--float-right {
+  top: -14px;
+  right: 12px;
+}
+
+.chip--float-left {
+  top: -14px;
+  left: 12px;
+}
+
+.chip--blue {
+  background: #EFF6FF;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  color: #2563EB;
+}
+
+.chip--indigo {
+  background: #EEF2FF;
+  border: 1px solid rgba(79, 70, 229, 0.22);
+  color: #4F46E5;
+}
+
+.chip--emerald {
+  background: #ECFDF5;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
+.chip-icon {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .laptop-lid,
+  .laptop-screen-shade,
+  .laptop-floating-chip,
+  .laptop-flat-chassis,
+  .laptop-mockup-wrapper--ready:hover .laptop-flat-chassis {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Behavior (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .laptop-floating-chip {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .laptop-mockup-wrapper {
+    max-width: 100%;
+  }
+
+  .laptop-lid {
+    border-radius: 12px 12px 0 0;
+    padding: 4px 5px 5px;
+  }
+
+  .laptop-bezel-top {
+    height: 7px;
+    margin-bottom: 2px;
+  }
+
+  .laptop-camera-lens {
+    width: 3.5px;
+    height: 3.5px;
+  }
+
+  .laptop-base-top {
+    width: calc(100% + 14px);
+    left: -7px;
+    height: 9px;
+  }
+
+  .laptop-thumb-notch {
+    width: 44px;
+    height: 3.5px;
+  }
+
+  .laptop-base-lip {
+    width: calc(100% + 7px);
+    height: 3.5px;
+  }
+
+  .laptop-zoom-corner-btn {
+    width: 28px;
+    height: 28px;
+    top: 6px;
+    right: 6px;
+    opacity: 0.8;
+  }
+}

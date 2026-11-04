@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { useModal } from '../../../context/ModalContext';
 import './BenefitsSection.css';
 
 export function BenefitsSection() {
+  const { openGetStartedModal } = useModal();
   const [activeCard, setActiveCard] = useState(0); // Default spotlight on Finance
   const sectionRef = useRef(null);
 
@@ -55,9 +57,9 @@ export function BenefitsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span>MAKE PAYMENT</span>
-            <span>EASY, SIMPLIFY</span>
-            <span className="benefits-headline--blue">YOUR FINANCE</span>
+            <span>AUTOMATE WORKFLOWS,</span>
+            <span>SIMPLIFY OPERATIONS,</span>
+            <span className="benefits-headline--blue">SCALE YOUR BUSINESS</span>
           </motion.h2>
 
           <motion.p 
@@ -67,9 +69,9 @@ export function BenefitsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Consolidate banking, expense automation, and high-velocity workflows 
+            Consolidate ERP, workflow automation, and intelligent AI teammates 
             into a unified digital layer. Built to give modern businesses unmatched clarity, 
-            instant settlements, and automated financial governance.
+            zero manual errors, and automated operational governance.
           </motion.p>
 
           <motion.div 
@@ -81,15 +83,15 @@ export function BenefitsSection() {
           >
             <div className="benefit-bullet-item">
               <CheckCircle2 size={18} className="bullet-check" />
-              <span>Real-time multi-account treasury reconciliation</span>
+              <span>Tailored ERP &amp; CRM built around your exact business workflows</span>
             </div>
             <div className="benefit-bullet-item">
               <CheckCircle2 size={18} className="bullet-check" />
-              <span>Direct ERP &amp; API integration without custom middleware</span>
+              <span>End-to-end business automation eliminating repetitive manual entry</span>
             </div>
             <div className="benefit-bullet-item">
               <CheckCircle2 size={18} className="bullet-check" />
-              <span>Instant cross-border payment routing with sub-second finality</span>
+              <span>100% data sovereignty, full control &amp; 24/7 technical support</span>
             </div>
           </motion.div>
 
@@ -100,19 +102,24 @@ export function BenefitsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <a href="#pricing" className="benefits-pill-cta">
+            <button 
+              type="button" 
+              onClick={openGetStartedModal} 
+              className="benefits-pill-cta"
+              aria-label="Explore Plans and Get Started"
+            >
               <span className="benefits-pill-cta__icon" aria-hidden="true">
                 <ArrowUpRight size={18} strokeWidth={2.8} />
               </span>
               <span>EXPLORE PLANS</span>
-            </a>
+            </button>
           </motion.div>
         </div>
 
         {/* Right Column: Fanned Cards with Scroll-Driven Parallax Tilt */}
         <div className="benefits-fanned-stage">
           
-          {/* Card 1: FINANCE (Peach #FEEAE0) */}
+          {/* Card 1: ENTERPRISE ERP */}
           <motion.div 
             className={`fanned-card fanned-card--finance ${activeCard === 0 ? 'fanned-card--active' : ''}`}
             style={{
@@ -125,9 +132,9 @@ export function BenefitsSection() {
           >
             <div className="fanned-card__inner">
               <div className="fanned-card__text-content">
-                <h3 className="fanned-card__title">FINANCE</h3>
+                <h3 className="fanned-card__title">ENTERPRISE ERP</h3>
                 <p className="fanned-card__subtitle">
-                  Budgeting and expense tracking, all in one place.
+                  Inventory, supply chain, and multi-branch management in one place.
                 </p>
               </div>
 
@@ -201,7 +208,7 @@ export function BenefitsSection() {
             </div>
           </motion.div>
 
-          {/* Card 2: INVESTMENT (Sky Blue #E0F2FE) */}
+          {/* Card 2: AI & AUTOMATION (Sky Blue #E0F2FE) */}
           <motion.div 
             className={`fanned-card fanned-card--investment ${activeCard === 1 ? 'fanned-card--active' : ''}`}
             style={{
@@ -214,9 +221,9 @@ export function BenefitsSection() {
           >
             <div className="fanned-card__inner">
               <div className="fanned-card__text-content">
-                <h3 className="fanned-card__title">INVESTMENT</h3>
+                <h3 className="fanned-card__title">AI &amp; AUTOMATION</h3>
                 <p className="fanned-card__subtitle">
-                  Stocks, bonds and funds. Automated liquidity balancing and yield forecasting.
+                  Intelligent bots and custom automated workflows running 24/7 with zero errors.
                 </p>
               </div>
 

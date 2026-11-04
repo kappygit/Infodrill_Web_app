@@ -1,24 +1,27 @@
 import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { 
-  X, 
-  ArrowRight, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Globe, 
-  ChevronDown, 
-  Facebook, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
+import {
+  X,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+  ChevronDown,
+  Facebook,
+  Linkedin,
+  Twitter,
+  Instagram,
   ShieldCheck
 } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
+import { useModal } from '../../context/ModalContext';
 import { Logo } from '../ui/Logo';
+import { MegaMenu } from './MegaMenu';
 import './MobileNavigation.css';
 
-export function MobileNavigation({ isOpen, onClose, navigation }) {
+export function MobileNavigation({ isOpen, onClose }) {
+  const { openGetStartedModal } = useModal();
   const drawerRef = useRef(null);
 
   // Close on Escape & handle Tab trap
@@ -80,15 +83,6 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
     }
   };
 
-  const quickLinks = [
-    { label: 'About Us', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Industries', href: '#industries' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
   const services = [
     'ERP Development',
     'CRM Solutions',
@@ -113,7 +107,7 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
+          transition={{ duration: 0.22, ease: 'easeOut' }}
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -125,13 +119,18 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 28, stiffness: 260 }}
+            transition={{ type: 'spring', damping: 28, stiffness: 280 }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header: Logo + Close */}
             <div className="mobile-nav-header">
-              <a href="#" className="mobile-nav-brand" onClick={(e) => handleLinkClick(e, '#')} aria-label="INFODRILL Home">
-                <Logo size="md" />
+              <a
+                href="#"
+                className="mobile-nav-brand"
+                onClick={(e) => handleLinkClick(e, '#')}
+                aria-label="INFODRILL Home"
+              >
+                <Logo size="md" light={false} height={42} />
               </a>
 
               <button
@@ -140,50 +139,38 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
                 onClick={onClose}
                 aria-label="Close navigation"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
-            {/* Scrollable Content Styled Directly After Website Footer Reference (Photo 2) */}
+            {/* Scrollable Content Body */}
             <div className="mobile-nav-scroll-body">
-              
-              {/* Column 2: Quick Links */}
+
+              {/* Section 1: EXPLORE INFODRILL (Interactive Mega Menu Accordion) */}
               <div className="drawer-nav-column">
-                <h3 className="drawer-nav-header">QUICK LINKS</h3>
-                <ul className="drawer-nav-list" role="list">
-                  {quickLinks.map((item) => (
-                    <li key={item.label} className="drawer-nav-item">
-                      <a 
-                        href={item.href} 
-                        className="drawer-nav-link"
-                        onClick={(e) => handleLinkClick(e, item.href)}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="drawer-nav-header">EXPLORE INFODRILL</h3>
+                <MegaMenu isMobile={true} onClose={onClose} />
               </div>
 
-              {/* Column 3: Services */}
+              {/* Section 2: SERVICES */}
               <div className="drawer-nav-column">
                 <h3 className="drawer-nav-header">SERVICES</h3>
                 <ul className="drawer-nav-list" role="list">
-                  {services.map((service) => (
-                    <li key={service} className="drawer-nav-item">
-                      <a 
-                        href="#services" 
+                  {services.map((item) => (
+                    <li key={item} className="drawer-nav-item">
+                      <a
+                        href="#services"
                         className="drawer-nav-link"
                         onClick={(e) => handleLinkClick(e, '#services')}
                       >
-                        {service}
+                        {item}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Column 4: Contact Details */}
+              {/* Section 4: CONTACT DETAILS */}
               <div className="drawer-nav-column drawer-contact-column">
                 <h3 className="drawer-nav-header">CONTACT</h3>
 
@@ -220,21 +207,25 @@ export function MobileNavigation({ isOpen, onClose, navigation }) {
                 </div>
               </div>
 
-              {/* Primary Action Button */}
+              {/* Section 5: Primary Action Button */}
               <div className="drawer-cta-section">
-                <a
-                  href="#contact"
+                <button
+                  type="button"
                   className="drawer-primary-btn"
-                  onClick={(e) => handleLinkClick(e, '#contact')}
+                  onClick={() => {
+                    onClose();
+                    openGetStartedModal();
+                  }}
+                  aria-label="Open Get Started lead form"
                 >
                   <span>GET STARTED</span>
                   <ArrowRight size={16} />
-                </a>
+                </button>
               </div>
 
-              {/* Bottom Bar: Language Selector, Legal Links, Social Icons, Copyright */}
+              {/* Section 6: Bottom Bar (Language, Social Icons, Copyright) */}
               <div className="drawer-bottom-bar">
-                
+
                 {/* Language / Region */}
                 <div className="drawer-lang-tag">
                   <Globe size={14} className="drawer-lang-icon" aria-hidden="true" />

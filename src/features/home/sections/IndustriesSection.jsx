@@ -96,8 +96,8 @@ export function IndustriesSection() {
                 <p className="industry-desc">{ind.desc}</p>
 
                 <div className="industry-footer">
-                  <a href="#contact" className="industry-cta">
-                    <span>Explore Solutions</span>
+                  <a href={ind.name === 'Healthcare' ? '#healthcare' : '#contact'} className="industry-cta">
+                    <span>{ind.name === 'Healthcare' ? 'View Healthcare IT' : 'Explore Solutions'}</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>

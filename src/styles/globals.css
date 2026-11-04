@@ -234,6 +234,21 @@ img, svg {
   }
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 0.85s linear infinite !important;
+  display: inline-block;
+  transform-origin: center;
+}
+
 /* Ambient Utility Classes */
 .animate-float {
   animation: float-gentle 4.8s ease-in-out infinite;
@@ -245,6 +260,27 @@ img, svg {
 
 .animate-pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Thin Section Divider Line — Bottom of every section on every page
+   ========================================================================== */
+
+main section,
+.hero-scroll-wrapper,
+.ticker-section,
+.benefits-section,
+.healthcare-section,
+.stats-section,
+.people-purpose-section,
+.about-section,
+.services-section,
+.industries-section,
+.why-us-section,
+.portfolio-section,
+.testimonial-section,
+.contact-enquiry-section {
+  border-bottom: 1px solid var(--color-border-divider, #CBD5E1) !important;
 }
 
 /* ==========================================================================

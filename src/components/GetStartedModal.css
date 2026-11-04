@@ -1,0 +1,763 @@
+/* ==========================================================================
+   Get Started Modal — Restyled to InfoDrill Design System
+   Tokens used from tokens.css:
+     - Surface: --color-card-white, --color-page-bg
+     - Overlay: --color-dark-notch (at 70% opacity)
+     - Accents: --color-accent-blue, --color-accent-blue-hover, --color-accent-blue-light,
+                --color-accent-iris, --color-accent-periwinkle
+     - Gradients: --gradient-hero, --gradient-logo
+     - Typography: --font-heading, --font-body
+     - Radii: --radius-md (14px), --radius-xl (28px), --radius-pill (9999px)
+   ========================================================================== */
+
+/* Overlay / Backdrop: Dark site background color at 70% opacity with backdrop-blur */
+.get-started-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal, 999999);
+  background: rgba(15, 19, 29, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Modal Card: Site surface color, 1px accent border at 20% opacity, soft primary glow */
+.get-started-modal {
+  position: relative;
+  background: var(--color-card-white, #FFFFFF);
+  border-radius: var(--radius-xl, 28px);
+  border: 1px solid rgba(79, 70, 229, 0.20);
+  box-shadow:
+    0 25px 65px -15px rgba(15, 19, 29, 0.35),
+    0 0 40px -5px rgba(79, 70, 229, 0.22);
+  width: 100%;
+  max-width: 920px;
+  max-height: min(90vh, 760px);
+  max-height: min(90dvh, 760px);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbars */
+.get-started-modal *::-webkit-scrollbar,
+.get-started-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.get-started-modal *::-webkit-scrollbar-track,
+.get-started-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.get-started-modal *::-webkit-scrollbar-thumb,
+.get-started-modal::-webkit-scrollbar-thumb {
+  background: rgba(129, 140, 248, 0.35);
+  border-radius: var(--radius-pill, 9999px);
+}
+
+.get-started-modal *::-webkit-scrollbar-thumb:hover,
+.get-started-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.55);
+}
+
+/* Close Button: Round, with rotate-90 hover animation */
+.get-started-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill, 9999px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: rgba(248, 250, 252, 0.9);
+  color: var(--color-text-muted, #64748B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 200ms ease,
+              border-color 200ms ease,
+              color 200ms ease;
+  z-index: 30;
+  outline: none;
+}
+
+.get-started-close-btn:hover {
+  background: var(--color-accent-blue-light, #EEF2FF);
+  color: var(--color-accent-blue, #4F46E5);
+  border-color: rgba(79, 70, 229, 0.3);
+  transform: rotate(90deg) scale(1.06);
+}
+
+.get-started-close-btn:focus-visible {
+  outline: 2px solid var(--color-accent-blue, #4F46E5);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   LEFT PANEL (approx 38% width, hero gradient + subtle grid / glow pattern)
+   ========================================================================== */
+
+.get-started-left-panel {
+  flex: 0 0 38%;
+  width: 38%;
+  background-color: #F8FAFC;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.12), transparent 70%),
+    linear-gradient(rgba(79, 70, 229, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  border-right: 1px solid rgba(79, 70, 229, 0.14);
+  padding: 32px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.modal-left-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.get-started-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(79, 70, 229, 0.10);
+  border: 1px solid rgba(79, 70, 229, 0.20);
+  color: var(--color-accent-blue, #4F46E5);
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.get-started-title {
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0F172A);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+}
+
+.get-started-subtitle {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   INFO CARDS: Glass style (backdrop blur, white/border alpha) + icon gradient
+   ========================================================================== */
+
+.modal-desktop-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.modal-channel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 14px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 14px -2px rgba(79, 70, 229, 0.06);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+a.modal-channel-item:hover {
+  border-color: rgba(79, 70, 229, 0.35);
+  box-shadow: 0 8px 20px -4px rgba(79, 70, 229, 0.16);
+  transform: translateY(-1.5px);
+}
+
+/* Icon boxes: Primary-to-accent logo gradient */
+.modal-channel-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--gradient-logo);
+  color: var(--color-text-white, #FFFFFF);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+  flex-shrink: 0;
+}
+
+.modal-channel-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.modal-channel-label {
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--color-text-muted, #64748B);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.modal-channel-value {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-main, #0F172A);
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.modal-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-blue, #4F46E5);
+  text-decoration: underline;
+  margin-top: 3px;
+  transition: color 180ms ease;
+}
+
+.modal-map-link:hover {
+  color: var(--color-accent-blue-hover, #4338CA);
+}
+
+/* NDA Badge: Accent color themed instead of generic green */
+.modal-sla-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 14px);
+  background: rgba(79, 70, 229, 0.06);
+  border: 1px solid rgba(79, 70, 229, 0.18);
+  color: var(--color-accent-blue, #4F46E5);
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.modal-sla-icon {
+  color: var(--color-accent-blue, #4F46E5);
+  flex-shrink: 0;
+}
+
+/* Slim Action Row for Mobile (< 768px only) */
+.modal-mobile-channels {
+  display: none;
+}
+
+/* ==========================================================================
+   RIGHT PANEL (approx 62% width, theme surface, form)
+   ========================================================================== */
+
+.get-started-right-panel {
+  flex: 1;
+  background: var(--color-card-white, #FFFFFF);
+  padding: 34px 34px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+/* Error Banner */
+.get-started-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #DC2626;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 14px);
+  font-size: 0.85rem;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  margin-bottom: 16px;
+}
+
+.get-started-alert-icon {
+  flex-shrink: 0;
+}
+
+/* Form Layout */
+.get-started-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.get-started-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Form Fields */
+.get-started-right-panel .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.get-started-right-panel .form-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-text-main, #0F172A);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+}
+
+.get-started-right-panel .form-required {
+  color: #EF4444;
+  margin-left: 2px;
+}
+
+/* Form Inputs: Glass/surface background, border that glows in primary color on focus */
+.get-started-right-panel .form-input,
+.get-started-right-panel .form-select,
+.get-started-right-panel .form-textarea {
+  width: 100%;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: var(--radius-md, 14px);
+  padding: 11px 15px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  color: var(--color-text-main, #0F172A);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.get-started-right-panel .form-input:focus,
+.get-started-right-panel .form-select:focus,
+.get-started-right-panel .form-textarea:focus {
+  border-color: var(--color-accent-blue, #4F46E5);
+  box-shadow:
+    0 0 0 3px rgba(79, 70, 229, 0.18),
+    0 0 16px rgba(79, 70, 229, 0.12);
+  background: var(--color-card-white, #FFFFFF);
+}
+
+.get-started-right-panel .form-input::placeholder,
+.get-started-right-panel .form-textarea::placeholder {
+  color: var(--color-text-muted, #64748B);
+}
+
+.get-started-right-panel .form-select {
+  cursor: pointer;
+}
+
+.get-started-right-panel .form-select option {
+  background: var(--color-card-white, #FFFFFF);
+  color: var(--color-text-main, #0F172A);
+}
+
+.get-started-right-panel .form-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.get-started-right-panel .form-input--error {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.get-started-right-panel .form-error {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  color: #DC2626;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   "SEND MESSAGE" BUTTON: Matched to Navbar Get Started CTA
+   Solid black, pill radius, subtle shimmer reflection, hover lift, arrow slide
+   ========================================================================== */
+
+.get-started-actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.get-started-submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 28px;
+  background: #000000;
+  color: var(--color-text-white, #FFFFFF);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 200ms ease,
+              box-shadow 200ms ease;
+  outline: none;
+}
+
+/* Shimmer sweep animation across the black button */
+.modal-btn-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 600ms ease;
+}
+
+.get-started-submit-btn:hover .modal-btn-shimmer {
+  left: 200%;
+}
+
+.get-started-submit-btn:hover:not(:disabled) {
+  background: #18181B;
+  transform: translateY(-1.5px);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.get-started-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.get-started-submit-btn:disabled:not(.get-started-submit-btn--loading) {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   ACTIVE SUBMITTING / LOADING STATE
+   - Infinite smooth spinning loader
+   - Ambient primary-accent glowing pulse on button
+   - Continuous shimmer light sweep
+   - Animated ellipsis on loading text
+   ========================================================================== */
+
+@keyframes modalSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-btn-spinner {
+  animation: modalSpin 0.8s linear infinite !important;
+  transform-origin: center;
+  flex-shrink: 0;
+  display: inline-block;
+  color: #FFFFFF;
+}
+
+@keyframes modalSubmittingGlow {
+  0%, 100% {
+    background: #0F131D;
+    box-shadow: 
+      0 4px 18px rgba(79, 70, 229, 0.45),
+      0 0 0 1px rgba(129, 140, 248, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    background: #18182E;
+    box-shadow: 
+      0 6px 28px rgba(99, 102, 241, 0.65),
+      0 0 16px rgba(79, 70, 229, 0.55),
+      0 0 0 2px rgba(129, 140, 248, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    border-color: rgba(129, 140, 248, 0.8);
+  }
+}
+
+@keyframes modalActiveShimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.get-started-submit-btn--loading {
+  background: #0F131D !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  cursor: wait !important;
+  pointer-events: none;
+  animation: modalSubmittingGlow 1.8s ease-in-out infinite !important;
+}
+
+.get-started-submit-btn--loading .modal-btn-shimmer {
+  animation: modalActiveShimmer 1.5s ease-in-out infinite !important;
+  opacity: 0.32;
+}
+
+.modal-btn-loading-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal-btn-loading-text {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+@keyframes ellipsisDot {
+  0%, 20% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+  80%, 100% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+}
+
+.modal-loading-dots {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 1px;
+}
+
+.modal-loading-dot {
+  animation: ellipsisDot 1.4s infinite ease-in-out;
+}
+
+.modal-loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.modal-loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Arrow slide micro-interaction on hover */
+.modal-btn-arrow {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.get-started-submit-btn:hover:not(:disabled) .modal-btn-arrow {
+  transform: translateX(4px) translateY(-1px);
+}
+
+/* Success Card */
+.get-started-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 16px;
+}
+
+.get-started-success-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--color-accent-blue, #4F46E5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.get-started-success-title {
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading, #0F172A);
+  margin: 0 0 8px 0;
+}
+
+.get-started-success-desc {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-body, #475569);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  max-width: 320px;
+}
+
+.get-started-success-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill, 9999px);
+  background: var(--color-accent-blue-light, #EEF2FF);
+  color: var(--color-accent-blue, #4F46E5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE (below 768px)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .get-started-backdrop {
+    padding: 14px;
+  }
+
+  .get-started-modal {
+    flex-direction: column;
+    max-height: 90vh;
+    max-height: 90dvh;
+    border-radius: var(--radius-lg, 20px);
+    overflow-y: auto;
+  }
+
+  /* Left panel becomes compact header */
+  .get-started-left-panel {
+    flex: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(79, 70, 229, 0.14);
+    padding: 24px 20px 18px;
+    gap: 12px;
+    overflow-y: visible;
+  }
+
+  .get-started-title {
+    font-size: 1.3rem;
+    padding-right: 36px;
+  }
+
+  .get-started-subtitle {
+    font-size: 0.8125rem;
+    padding-right: 24px;
+  }
+
+  /* Hide full 4 info cards & bottom SLA note on mobile */
+  .modal-desktop-channels,
+  .modal-sla-box {
+    display: none;
+  }
+
+  /* Show slim Call & Email row on mobile */
+  .modal-mobile-channels {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .modal-mobile-action-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: var(--radius-pill, 9999px);
+    background: var(--color-card-white, #FFFFFF);
+    border: 1px solid rgba(79, 70, 229, 0.22);
+    color: var(--color-accent-blue, #4F46E5);
+    font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 180ms ease;
+  }
+
+  .modal-mobile-action-btn:active {
+    background: var(--color-accent-blue-light, #EEF2FF);
+    transform: scale(0.98);
+  }
+
+  /* Right panel with form */
+  .get-started-right-panel {
+    flex: none;
+    width: 100%;
+    padding: 18px 20px 24px;
+    overflow-y: visible;
+  }
+
+  .get-started-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .get-started-close-btn {
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -6,9 +6,10 @@
 .benefits-section {
   position: relative;
   width: 100%;
-  padding: 110px 24px 130px;
+  padding: 52px 24px 56px;
   background-color: #FFFFFF;
   overflow: hidden;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
 }
 
 .benefits-container {

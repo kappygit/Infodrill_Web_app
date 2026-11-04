@@ -5,8 +5,9 @@
 .about-section {
   position: relative;
   width: 100%;
-  padding: 100px 24px;
+  padding: 52px 24px;
   background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
 }
 
 .about-container {

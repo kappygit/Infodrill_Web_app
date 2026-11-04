@@ -1,11 +1,14 @@
 import React from 'react';
 import { useScrollMotion } from '../../hooks/useScrollMotion';
 import { HeroSection } from './sections/HeroSection';
+import { TickerSection } from './sections/TickerSection';
 import { BenefitsSection } from './sections/BenefitsSection';
 import { StatsSection } from './sections/StatsSection';
 import { AboutSection } from './sections/AboutSection';
 import { ServicesGridSection } from './sections/ServicesGridSection';
 import { IndustriesSection } from './sections/IndustriesSection';
+import { HealthcareITSection } from './sections/HealthcareITSection';
+import { PeoplePurposeSection } from './sections/PeoplePurposeSection';
 import { WhyChooseUsSection } from './sections/WhyChooseUsSection';
 import { PortfolioSection } from './sections/PortfolioSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
@@ -20,14 +23,29 @@ export function HomePage() {
       {/* 2. Hero: Scroll-driven rising phone mockup & expanding concentric rings */}
       <HeroSection />
 
+      {/* Our Valuable Clients: Infinite Right-to-Left Logo Marquee */}
+      <div data-reveal>
+        <TickerSection />
+      </div>
+
       {/* 3. Benefits: Smooth scroll tilted/fanned cards with vector character illustration */}
       <div data-reveal>
         <BenefitsSection />
       </div>
 
-      {/* 4. Stats: 50+ Projects, 30+ Clients, 5+ Years, 99% Satisfaction */}
+      {/* Healthcare IT Solutions Showcase: Placed directly below Benefits */}
+      <div data-reveal>
+        <HealthcareITSection />
+      </div>
+
+      {/* 4. Stats: 44+ Projects, 17+ Clients, 5+ Years, 99% Satisfaction */}
       <div data-reveal>
         <StatsSection />
+      </div>
+
+      {/* People & Purpose: The People & Purpose Behind Our Innovation (Our Story & Mission + Leadership & Team) */}
+      <div data-reveal>
+        <PeoplePurposeSection />
       </div>
 
       {/* 5. About: About INFODRILL, Copy, Checklist, 5+ Years Badge & Learn More Button */}
@@ -45,7 +63,7 @@ export function HomePage() {
         <IndustriesSection />
       </div>
 
-      {/* 8. Why Choose Us: 6 Differentiators & 30+ Happy Clients Badge */}
+      {/* 8. Why Choose Us: 6 Differentiators & 17+ Happy Clients Badge */}
       <div data-reveal>
         <WhyChooseUsSection />
       </div>

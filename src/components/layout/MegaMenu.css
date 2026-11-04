@@ -1,0 +1,890 @@
+/* ==========================================================================
+   MegaMenu — React + Tailwind CSS Compatible Dropdown Component
+   Centered Fixed Layout matching User's Exact Specification
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+
+/* Fixed Full-Width Centering Wrapper (Flexbox Centering with No translateX clash) */
+.megamenu-fixed-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transition: top 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hitbox bridge: 12px gap with pointer-events-auto so mouse never leaves hover zone */
+.megamenu-hitbox-bridge {
+  position: relative;
+  width: min(1200px, calc(100vw - 48px));
+  max-width: 1200px;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+/* Main White Dropdown Panel with rounded-2xl & soft shadow */
+.megamenu-panel {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 1.25rem; /* rounded-2xl (20px) */
+  padding: 22px;
+  box-shadow: 
+    0 22px 65px -15px rgba(15, 23, 42, 0.15),
+    0 4px 20px -2px rgba(124, 58, 237, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Dynamic Pointing Notch (calculated left value points directly to active nav item) */
+.megamenu-notch {
+  position: absolute;
+  top: -6px;
+  width: 13px;
+  height: 13px;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(139, 92, 246, 0.18);
+  border-left: 1px solid rgba(139, 92, 246, 0.18);
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* 3 Equal-Width Cards Grid (grid-cols-3, gap-5) */
+.megamenu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem; /* gap-5 = 20px */
+}
+
+/* Very Light Purple Background Card with Thin Border & Rounded Corners */
+.megamenu-card {
+  background-color: #FAF8FF; /* Very light purple background */
+  border: 1px solid rgba(139, 92, 246, 0.14);
+  border-radius: 1rem; /* rounded-xl (16px) */
+  padding: 24px 20px 20px;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  min-height: 410px;
+}
+
+.megamenu-card:hover {
+  background-color: #F7F3FF;
+  border-color: rgba(124, 58, 237, 0.28);
+  box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 1. White Rounded Icon Box at top (Purple Icon) */
+.megamenu-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  background-color: #FFFFFF;
+  color: #7C3AED; /* Purple icon */
+}
+
+/* 2. Bold Heading with small Purple Underline Bar (Poppins font) */
+.megamenu-heading-wrap {
+  margin-bottom: 8px;
+}
+
+.megamenu-card-heading {
+  font-family: 'Poppins', var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.015em;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.megamenu-heading-bar {
+  width: 28px;
+  height: 3px;
+  background-color: #7C3AED; /* Purple bar */
+  border-radius: 9999px;
+  margin-top: 6px;
+}
+
+/* 3. Short Gray Description (2-3 lines) */
+.megamenu-card-desc {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #6B7280; /* Gray text */
+  margin: 0 0 16px;
+  min-height: 38px;
+}
+
+/* 4. List of 5 Links */
+.megamenu-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Link Row: Small gray icon box on left, text, arrow icon on right */
+.megamenu-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: #374151;
+  transition: all 180ms ease;
+  user-select: none;
+}
+
+.megamenu-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Small gray rounded icon box on the left */
+.megamenu-row-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background-color: #F3F4F6; /* Gray background */
+  color: #6B7280; /* Gray icon */
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 180ms ease;
+  flex-shrink: 0;
+}
+
+.megamenu-row-text {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.845rem;
+  font-weight: 550;
+  line-height: 1.25;
+  transition: color 180ms ease;
+}
+
+.megamenu-row-arrow {
+  color: #9CA3AF;
+  opacity: 0.7;
+  transition: transform 180ms ease, color 180ms ease, opacity 180ms ease;
+  flex-shrink: 0;
+}
+
+/* On row hover: light background, the arrow moves slightly right, and text turns purple */
+.megamenu-link-row:hover {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+}
+
+.megamenu-link-row:hover .megamenu-row-text {
+  color: #7C3AED; /* Text turns purple */
+}
+
+.megamenu-link-row:hover .megamenu-row-arrow {
+  color: #7C3AED;
+  opacity: 1;
+  transform: translateX(4px); /* Arrow moves slightly right */
+}
+
+.megamenu-link-row:hover .megamenu-row-icon-box {
+  background-color: #EDE9FE;
+  color: #7C3AED;
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+/* 5. "View More →" Link in Purple at Bottom */
+.megamenu-view-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 0 2px;
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #7C3AED; /* Purple link */
+  text-decoration: none;
+  transition: all 180ms ease;
+  align-self: center;
+  margin-top: 14px;
+}
+
+.megamenu-view-more:hover {
+  color: #6D28D9;
+  gap: 9px;
+}
+
+.megamenu-view-more-arrow {
+  transition: transform 180ms ease;
+}
+
+.megamenu-view-more:hover .megamenu-view-more-arrow {
+  transform: translateX(3px);
+}
+
+/* Purple Pill Button matching Reference Images */
+.megamenu-view-more-pill-wrap {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+  padding-top: 2px;
+}
+
+.megamenu-view-more-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  color: #FFFFFF;
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
+  transition: all 180ms ease;
+}
+
+.megamenu-view-more-pill-btn:hover {
+  background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.38);
+  color: #FFFFFF;
+}
+
+.megamenu-view-more-pill-btn:hover .megamenu-view-more-arrow {
+  transform: translateX(3px);
+}
+
+/* Carousel Indicator Dots under Preview Card */
+.megamenu-preview-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.preview-carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E2E8F0;
+  transition: all 200ms ease;
+}
+
+.preview-carousel-dot--active {
+  width: 16px;
+  border-radius: 9999px;
+  background: #7C3AED;
+}
+
+/* Mascot Bot Styling */
+.megamenu-mascot-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.megamenu-mascot-svg {
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(124, 58, 237, 0.12));
+  transition: transform 250ms ease;
+}
+
+.megamenu-card:hover .megamenu-mascot-svg {
+  transform: scale(1.05) translateY(-2px);
+}
+
+/* ==========================================================================
+   Preview Card Layout (Card 2 in About)
+   ========================================================================== */
+
+.megamenu-preview-box {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 200ms ease;
+  margin-top: 6px;
+}
+
+.megamenu-preview-box:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+.megamenu-preview-visual {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+  padding: 16px 16px 20px;
+  position: relative;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-decor-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.preview-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.dot--red { background-color: #EF4444; }
+.dot--yellow { background-color: #F59E0B; }
+.dot--green { background-color: #10B981; }
+
+.preview-badge-chip {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  color: #E0E7FF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+
+.preview-visual-title {
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.megamenu-preview-footer {
+  padding: 12px 14px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.preview-footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-footer-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.preview-footer-sub {
+  font-size: 0.75rem;
+  color: #64748B;
+  line-height: 1.35;
+}
+
+.preview-footer-circle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F3E8FF;
+  color: #7C3AED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 180ms ease;
+}
+
+.megamenu-preview-box:hover .preview-footer-circle-btn {
+  background: #7C3AED;
+  color: #FFFFFF;
+  transform: translateX(2px);
+}
+
+/* ==========================================================================
+   Featured Project Card Layout (Portfolio)
+   ========================================================================== */
+
+/* ==========================================================================
+   Our Projects List (Portfolio Column 2)
+   ========================================================================== */
+
+.megamenu-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.megamenu-project-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  text-decoration: none;
+  color: #1F2937;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.megamenu-project-row:hover {
+  background-color: #FFFFFF;
+  border-color: rgba(124, 58, 237, 0.35);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.1);
+  transform: translateY(-1.5px);
+}
+
+.megamenu-project-row-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.megamenu-project-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background-color: #F5F3FF;
+  color: #7C3AED;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  transition: all 180ms ease;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.megamenu-project-row:hover .megamenu-project-icon-box {
+  background-color: #7C3AED;
+  color: #FFFFFF;
+  border-color: #7C3AED;
+  box-shadow: 0 3px 8px rgba(124, 58, 237, 0.28);
+}
+
+.megamenu-project-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.megamenu-project-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: #0F172A;
+  line-height: 1.25;
+  transition: color 180ms ease;
+}
+
+.megamenu-project-row:hover .megamenu-project-title {
+  color: #7C3AED;
+}
+
+.megamenu-project-summary {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.73rem;
+  line-height: 1.35;
+  color: #64748B;
+  margin: 3px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.megamenu-project-arrow {
+  color: #9CA3AF;
+  opacity: 0.65;
+  transition: all 180ms ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.megamenu-project-row:hover .megamenu-project-arrow {
+  color: #7C3AED;
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.megamenu-project-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  border-radius: 14px;
+  padding: 16px;
+  text-decoration: none;
+  transition: all 200ms ease;
+  margin-top: 6px;
+}
+
+.megamenu-project-card:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-kpi-chip {
+  display: inline-block;
+  background: #EEF2FF;
+  color: #4F46E5;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.project-card-title {
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 6px;
+}
+
+.project-card-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #64748B;
+  margin: 0 0 14px;
+}
+
+.project-card-tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tech-badge {
+  background: #F1F5F9;
+  color: #475569;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+.project-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #7C3AED;
+}
+
+/* ==========================================================================
+   Contact Details Card Layout (Contact)
+   ========================================================================== */
+
+.megamenu-contact-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1F2937;
+  transition: all 180ms ease;
+}
+
+.contact-item-row:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateX(2px);
+  box-shadow: 0 3px 10px rgba(124, 58, 237, 0.08);
+}
+
+.contact-item-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #F3E8FF;
+  color: #7C3AED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-item-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-item-val {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.35;
+}
+
+.contact-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  margin-top: 14px;
+}
+
+.contact-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.contact-footer-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
+}
+
+/* ==========================================================================
+   Split Card Layout (Upper Purple Box + Lower White Quote Box)
+   Directly matching Reference Image 2
+   ========================================================================== */
+
+.megamenu-card-split {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 410px;
+}
+
+/* Upper Purple Gradient Box */
+.megamenu-purple-gradient-box {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%);
+  border-radius: 1rem;
+  padding: 22px 20px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.18);
+  flex: 1;
+}
+
+.purple-box-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.purple-box-tagline {
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  color: #FFFFFF;
+}
+
+.purple-box-subtext {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 16px;
+}
+
+.purple-box-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: all 180ms ease;
+}
+
+.purple-box-cta-btn:hover {
+  background: #FFFFFF;
+  color: #7C3AED;
+  transform: translateY(-1px);
+}
+
+/* Lower White Quote Box */
+.megamenu-white-quote-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.14);
+  border-radius: 1rem;
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  flex: 1;
+}
+
+.white-box-quote {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #374151;
+  font-style: italic;
+  margin: 0 0 12px;
+}
+
+.white-box-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 10px;
+}
+
+.quote-brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.quote-author-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #6B7280;
+}
+
+/* ==========================================================================
+   Mobile Accordion Mode
+   ========================================================================== */
+
+.megamenu-mobile-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.megamenu-mobile-card {
+  background: #FAF8FF;
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.megamenu-mobile-card-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.megamenu-mobile-title {
+  font-family: 'Poppins', var(--font-heading, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.megamenu-mobile-chevron {
+  color: #7C3AED;
+  transition: transform 200ms ease;
+}
+
+.megamenu-mobile-chevron--open {
+  transform: rotate(180deg);
+}
+
+.megamenu-mobile-content {
+  padding: 0 14px 14px;
+  overflow: hidden;
+}
+
+.megamenu-mobile-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.megamenu-mobile-single-card .megamenu-card,
+.megamenu-mobile-single-card .megamenu-card-split {
+  min-height: auto;
+  padding: 16px;
+}
+
+/* Hide desktop dropdown on mobile screens */
+@media (max-width: 900px) {
+  .megamenu-fixed-wrapper {
+    display: none !important;
+  }
+}

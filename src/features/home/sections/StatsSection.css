@@ -3,8 +3,9 @@
    ========================================================================== */
 
 .stats-section {
-  padding: 40px 24px 60px;
+  padding: 24px 24px 32px;
   background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
 }
 
 .stats-container {

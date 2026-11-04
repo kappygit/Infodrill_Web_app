@@ -1,23 +1,25 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useRoute } from '../../context/RouteContext';
 import { Logo } from '../ui/Logo';
-import { 
-  ArrowUpRight, 
-  Globe, 
-  ChevronDown, 
-  Facebook, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  Check, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ShieldCheck 
+import {
+  ArrowUpRight,
+  Globe,
+  ChevronDown,
+  Facebook,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Check,
+  Mail,
+  Phone,
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 import './Footer.css';
 
 export function Footer() {
+  const { navigate } = useRoute();
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -73,9 +75,9 @@ export function Footer() {
   return (
     <footer className="footer-sky-wrapper" ref={footerRef} role="contentinfo">
       <div className="footer-sky-inner">
-        
+
         {/* Top CTA Row: Headline (Left) & Work Email Pill Input (Right) */}
-        <motion.div 
+        <motion.div
           className="footer-top-cta-row"
           style={{ y: headerY }}
         >
@@ -87,7 +89,7 @@ export function Footer() {
           {/* Email Subscription Form */}
           <div className="footer-email-block">
             <span className="footer-email-label">WORK EMAIL</span>
-            
+
             <form className="footer-email-form" onSubmit={handleSubmit}>
               <input
                 type="email"
@@ -98,9 +100,9 @@ export function Footer() {
                 className={`footer-email-input ${isSubscribed ? 'footer-email-input--success' : ''}`}
                 required
               />
-              <button 
-                type="submit" 
-                className="footer-email-submit-btn" 
+              <button
+                type="submit"
+                className="footer-email-submit-btn"
                 aria-label="Submit work email"
                 disabled={isSubscribed}
               >
@@ -115,7 +117,7 @@ export function Footer() {
         </motion.div>
 
         {/* Big Rounded Dark Card with Parallax Slow Scroll */}
-        <motion.div 
+        <motion.div
           className="footer-dark-card"
           style={{ y: cardY, scale: cardScale }}
         >
@@ -124,13 +126,21 @@ export function Footer() {
 
           {/* Main Content Grid: Brand | Quick Links | Services | Contact */}
           <div className="footer-card-grid">
-            
+
             {/* Column 1: Brand Info */}
             <div className="footer-brand-column">
-              <a href="#hero" className="footer-brand-logo" aria-label="INFODRILL AI SOLUTIONS">
-                <Logo size="lg" />
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/');
+                }}
+                className="footer-brand-logo"
+                aria-label="INFODRILL AI SOLUTIONS"
+              >
+                <Logo size="lg" light={true} height={50} />
               </a>
-              
+
               <p className="footer-brand-desc">
                 Ahmedabad-based IT company building enterprise software that solves real operational problems for businesses across India.
               </p>
@@ -144,10 +154,10 @@ export function Footer() {
               {/* Verified Ratings (Glassdoor, Google, Clutch) */}
               <div className="footer-ratings-card" aria-label="Verified client ratings on Glassdoor, Google, and Clutch">
                 {/* Glassdoor Rating */}
-                <a 
-                  href="https://www.glassdoor.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://www.glassdoor.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-rating-item"
                   title="5.0 Star Rating on Glassdoor"
                 >
@@ -161,10 +171,10 @@ export function Footer() {
                 <div className="footer-rating-divider" aria-hidden="true" />
 
                 {/* Google Rating */}
-                <a 
-                  href="https://www.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://www.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-rating-item"
                   title="4.7 Star Rating on Google"
                 >
@@ -185,10 +195,10 @@ export function Footer() {
                 <div className="footer-rating-divider" aria-hidden="true" />
 
                 {/* Clutch Rating */}
-                <a 
-                  href="https://clutch.co" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://clutch.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-rating-item"
                   title="5.0 Star Rating on Clutch"
                 >
@@ -209,7 +219,16 @@ export function Footer() {
               <ul className="footer-nav-list" role="list">
                 {quickLinks.map((item) => (
                   <li key={item.label} className="footer-nav-item">
-                    <a href={item.href} className="footer-nav-link">
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        if (item.href?.startsWith('#')) {
+                          e.preventDefault();
+                          navigate(item.href);
+                        }
+                      }}
+                      className="footer-nav-link"
+                    >
                       {item.label}
                     </a>
                   </li>
@@ -234,7 +253,7 @@ export function Footer() {
             {/* Column 4: Contact Details */}
             <div className="footer-nav-column footer-contact-column">
               <h3 className="footer-nav-header">Contact</h3>
-              
+
               <div className="footer-contact-items-wrap">
                 {/* Email */}
                 <div className="footer-contact-row">
@@ -272,7 +291,7 @@ export function Footer() {
 
           {/* Bottom Bar: Language Selector, Copyright, Legal Links, Social Buttons */}
           <div className="footer-card-bottom-bar">
-            
+
             {/* Language / Region Selector */}
             <div className="footer-lang-dropdown">
               <Globe size={15} className="lang-icon" aria-hidden="true" />

@@ -77,7 +77,7 @@ export function WhyChooseUsSection() {
           })}
         </div>
 
-        {/* Bottom Banner with Button and "30+ Happy Clients" Badge */}
+        {/* Bottom Banner with Button and "17+ Happy Clients" Badge */}
         <motion.div 
           className="why-us-bottom-banner"
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export function WhyChooseUsSection() {
                 <HeartHandshake size={22} />
               </div>
               <div className="happy-badge-text">
-                <span className="happy-num">30+ HAPPY CLIENTS</span>
+                <span className="happy-num">17+ HAPPY CLIENTS</span>
                 <span className="happy-sub">Across Gujarat & India</span>
               </div>
             </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../../../config/siteConfig';
-import { ArrowUpRight, FolderGit2, Layers, CheckCircle2 } from 'lucide-react';
 import './PortfolioSection.css';
 
 const projectBadges = [
@@ -84,14 +83,6 @@ export function PortfolioSection() {
                       </span>
                     ))}
                   </div>
-                </div>
-
-                {/* Card Action */}
-                <div className="portfolio-card__footer">
-                  <a href="#contact" className="project-cta-link">
-                    <span>View Case Study</span>
-                    <ArrowUpRight size={15} />
-                  </a>
                 </div>
               </motion.div>
             );

@@ -32,3 +32,9 @@ dist-ssr
 
 # Build artifacts
 .taste-skill/
+.gemini/
+.agent/
+.agents/
+.gsd/
+.codex/
+.impeccable/

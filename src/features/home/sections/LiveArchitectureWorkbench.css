@@ -6,6 +6,7 @@
   padding: 100px 0 120px;
   background: #FFFFFF;
   position: relative;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
 }
 
 .workbench-header {

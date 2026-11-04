@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Healthcare IT Section — Modern Master Layout with 3D Carousel
+   ========================================================================== */
+
+.healthcare-section {
+  position: relative;
+  width: 100%;
+  padding: 52px 24px 56px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
+}
+
+.healthcare-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Master 2-column layout */
+.healthcare-master-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 56px;
+  align-items: stretch;
+}
+
+/* Left Column */
+.healthcare-col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
+
+.healthcare-eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #64748B;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.healthcare-headline {
+  font-family: 'Oswald', 'Outfit', sans-serif;
+  font-size: clamp(2.8rem, 4.4vw, 4.25rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: #0F172A;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4-Word Big Callout in Left Column */
+.healthcare-callout-block {
+  margin-top: 32px;
+}
+
+.healthcare-callout-words {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.healthcare-callout-words .callout-line-1 {
+  color: #1E293B;
+}
+
+.healthcare-callout-words .callout-line-2 {
+  color: #2563EB;
+}
+
+/* Pill CTA Button matching screenshot */
+.healthcare-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #E2E8F0;
+  color: #0F172A;
+  padding: 5px 22px 5px 5px;
+  border-radius: 9999px;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 32px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+
+.healthcare-pill-cta:hover {
+  transform: translateY(-2px);
+  background-color: #CBD5E1;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.healthcare-pill-cta__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.healthcare-pill-cta:hover .healthcare-pill-cta__icon {
+  transform: rotate(45deg);
+}
+
+.healthcare-pill-cta__text {
+  padding-right: 4px;
+}
+
+/* Right Column */
+.healthcare-col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.healthcare-subtext {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: #0F172A;
+  font-weight: 500;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.healthcare-subtext strong {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* Complete Offerings Strip */
+.healthcare-offerings-strip {
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.healthcare-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.healthcare-offering-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.healthcare-offering-chip:hover {
+  background-color: #EEF2FF;
+  border-color: #C7D2FE;
+  color: #4338CA;
+  transform: translateY(-1px);
+}
+
+.chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #4F46E5;
+}
+
+/* Trust points row */
+.healthcare-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #64748B;
+  padding-top: 4px;
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trust-icon {
+  color: #10B981;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .healthcare-master-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .healthcare-col-left {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .healthcare-section {
+    padding: 44px 16px 56px;
+  }
+
+  .healthcare-subtext {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+  }
+
+  .healthcare-headline {
+    font-size: 2.75rem;
+  }
+
+  .healthcare-callout-words {
+    font-size: 1.5rem;
+  }
+
+  .healthcare-trust-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

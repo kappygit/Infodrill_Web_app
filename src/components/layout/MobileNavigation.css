@@ -1,14 +1,14 @@
 /* ==========================================================================
-   Mobile Navigation Drawer — Mirrored from Website Footer Reference (Photo 2)
-   Clean, Professional, Typography-First Design (No Chunky Boxes)
+   Mobile Navigation Drawer — Clean White Theme
+   Crisp, modern, and aligned with the website's white aesthetic
    ========================================================================== */
 
 .mobile-nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(8, 12, 22, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 999999;
   display: flex;
   justify-content: flex-end;
@@ -17,16 +17,16 @@
 
 .mobile-nav-drawer {
   width: 100%;
-  max-width: 380px;
+  max-width: 350px;
   height: 100dvh;
   height: 100vh;
-  background: #0B0F19;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  border-top-left-radius: 28px;
-  border-bottom-left-radius: 28px;
+  background: #FFFFFF;
+  border-left: 1px solid #E2E8F0;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
   display: flex;
   flex-direction: column;
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7);
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.12);
   overflow: hidden;
 }
 
@@ -38,11 +38,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px 16px;
-  background: rgba(11, 15, 25, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 22px 14px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #F1F5F9;
   flex-shrink: 0;
 }
 
@@ -52,35 +50,31 @@
   text-decoration: none;
 }
 
-.mobile-nav-brand img,
-.mobile-nav-brand .infodrill-brand-img {
-  height: 42px !important;
-  max-height: 42px !important;
-  width: auto !important;
-  object-fit: contain;
-}
-
 .mobile-nav-close {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #E2E8F0;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #334155;
   cursor: pointer;
   transition: all 180ms ease;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-nav-close:hover,
-.mobile-nav-close:active {
-  background: rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
+.mobile-nav-close:hover {
+  background: #E2E8F0;
+  color: #0F172A;
   transform: rotate(90deg) scale(1.05);
+}
+
+.mobile-nav-close:active {
+  background: #CBD5E1;
+  transform: rotate(90deg) scale(0.96);
 }
 
 /* Scrollable Body */
@@ -92,7 +86,7 @@
   padding: 22px 22px 36px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
 
 /* Scrollbar */
@@ -103,26 +97,31 @@
   background: transparent;
 }
 .mobile-nav-scroll-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.12);
   border-radius: 10px;
 }
 
-/* Nav Columns (QUICK LINKS, SERVICES, CONTACT) — Exactly matching Photo 2 */
+/* Nav Columns (QUICK LINKS, SERVICES, CONTACT, ETC.) */
 .drawer-nav-column {
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.drawer-nav-column:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .drawer-nav-header {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.8125rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  color: #0F172A;
   text-transform: uppercase;
   margin: 0 0 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .drawer-nav-list {
@@ -138,7 +137,7 @@
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #A1A1AA;
+  color: #475569;
   text-decoration: none;
   transition: all 0.2s ease;
   display: inline-block;
@@ -147,11 +146,11 @@
 
 .drawer-nav-item .drawer-nav-link:hover,
 .drawer-nav-item .drawer-nav-link:active {
-  color: #FFFFFF;
+  color: #7C3AED;
   transform: translateX(4px);
 }
 
-/* Column 4: Contact */
+/* Column: Contact Details */
 .drawer-contact-items-wrap {
   display: flex;
   flex-direction: column;
@@ -161,48 +160,49 @@
 .drawer-contact-row {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.8875rem;
-  color: #A1A1AA;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
 .drawer-contact-icon {
-  color: #38BDF8;
+  color: #7C3AED; /* Brand Purple */
   flex-shrink: 0;
   margin-top: 3px;
 }
 
 .drawer-contact-link {
-  color: #D4D4D8;
+  color: #334155;
   text-decoration: none;
   transition: color 0.2s ease;
   word-break: break-all;
+  font-weight: 500;
 }
 
 .drawer-contact-link:hover {
-  color: #38BDF8;
+  color: #7C3AED;
 }
 
 .drawer-address-text {
-  color: #D4D4D8;
+  color: #475569;
   line-height: 1.45;
 }
 
+/* Trust Badge */
 .drawer-trust-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   margin-top: 6px;
-  padding: 7px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
   border-radius: 10px;
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.775rem;
   font-weight: 700;
-  color: #E2E8F0;
+  color: #334155;
 }
 
 .drawer-trust-icon {
@@ -221,26 +221,29 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
-  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+  background: #0F172A;
   color: #FFFFFF;
-  padding: 12px 20px;
+  padding: 13px 20px;
   border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  outline: none;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.875rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(79, 70, 229, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   transition: all 180ms ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .drawer-primary-btn:hover,
 .drawer-primary-btn:active {
-  background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+  background: #7C3AED;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(79, 70, 229, 0.6);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
 }
 
 /* Bottom Bar: Language, Socials, Copyright */
@@ -249,20 +252,20 @@
   flex-direction: column;
   gap: 16px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #F1F5F9;
 }
 
 .drawer-lang-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #CBD5E1;
+  color: #64748B;
   font-size: 0.8rem;
   font-weight: 600;
 }
 
 .drawer-lang-icon {
-  color: #38BDF8;
+  color: #7C3AED;
 }
 
 .drawer-social-cluster {
@@ -275,12 +278,12 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #CBD5E1;
+  color: #475569;
   text-decoration: none;
   transition: all 180ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -288,14 +291,14 @@
 
 .drawer-social-btn:hover,
 .drawer-social-btn:active {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(129, 140, 248, 0.4);
-  color: #FFFFFF;
+  background: #EDE9FE;
+  border-color: #DDD6FE;
+  color: #7C3AED;
   transform: translateY(-1px);
 }
 
 .drawer-copyright-text {
   font-size: 0.75rem;
-  color: #71717A;
+  color: #94A3B8;
   line-height: 1.4;
 }

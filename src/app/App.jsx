@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { RouteProvider, useRoute } from '../context/RouteContext';
+import { ModalProvider } from '../context/ModalContext';
+import { GetStartedModal } from '../components/GetStartedModal';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { HomePage } from '../features/home';
+import { ProjectDetailPage } from '../features/projects/ProjectDetailPage';
 import './App.css';
 
-export function App() {
+const CompanyChatbot = lazy(() =>
+  import('../components/chat/CompanyChatbot').then((m) => ({ default: m.CompanyChatbot }))
+);
+
+function AppContent() {
+  const { isProjectPage, projectSlug } = useRoute();
+
   return (
     <div className="app-root">
       {/* Accessible Skip Link */}
@@ -16,11 +26,35 @@ export function App() {
       <Navbar />
 
       {/* Main Page Content */}
-      <HomePage />
+      <main id="main-content">
+        {isProjectPage ? (
+          <ProjectDetailPage slug={projectSlug} />
+        ) : (
+          <HomePage />
+        )}
+      </main>
 
       {/* Enterprise Footer */}
       <Footer />
+
+      {/* Lead Capture Modal on "Get Started" Click */}
+      <GetStartedModal />
+
+      {/* Floating AI Assistant Chatbot */}
+      <Suspense fallback={null}>
+        <CompanyChatbot />
+      </Suspense>
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <RouteProvider>
+      <ModalProvider>
+        <AppContent />
+      </ModalProvider>
+    </RouteProvider>
   );
 }
 

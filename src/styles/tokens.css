@@ -93,4 +93,7 @@
   --shadow-float: 0 20px 45px -10px rgba(79, 70, 229, 0.12);
   --shadow-phone: 0 35px 80px -15px rgba(15, 23, 42, 0.22);
   --shadow-glow: 0 10px 25px -4px rgba(79, 70, 229, 0.35);
+
+  /* Section Dividers — Crisp Slate-300 */
+  --color-border-divider: #CBD5E1;
 }

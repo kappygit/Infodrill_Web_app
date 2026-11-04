@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Phone Screen ERP Dashboard UI (Matching User Design Specification)
+   - Clean enterprise white theme
+   - Pixel-perfect typography & spacing
+   - Smooth hover & micro-interactions
+   ========================================================================== */
+
+.phone-erp-dashboard {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: var(--font-body, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  color: #0F172A;
+  padding: 8px 12px 6px;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. Greeting Header Block
+   -------------------------------------------------------------------------- */
+.phone-erp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.phone-greeting-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.phone-greeting-label {
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1.1;
+}
+
+.phone-greeting-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 1px 0 0;
+  line-height: 1.2;
+}
+
+.phone-greeting-sub {
+  font-size: 0.54rem;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1.2;
+}
+
+.phone-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.phone-icon-btn {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+.phone-icon-btn:hover {
+  background: #EEF2F6;
+}
+
+.phone-icon-btn--bell {
+  position: relative;
+}
+
+.phone-notification-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  background-color: #EF4444;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   2. Four Mini Summary KPI Cards
+   -------------------------------------------------------------------------- */
+.phone-kpi-grid {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.phone-kpi-card {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid #F1F5F9;
+  border-radius: 10px;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  min-width: 0;
+}
+
+.phone-kpi-icon-wrap {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.phone-kpi-icon-wrap--blue {
+  background-color: #EFF6FF;
+}
+
+.phone-kpi-icon-wrap--cyan {
+  background-color: #ECFEFF;
+}
+
+.phone-kpi-icon-wrap--purple {
+  background-color: #F5F3FF;
+}
+
+.phone-kpi-icon-wrap--red {
+  background-color: #FEF2F2;
+}
+
+.phone-kpi-label {
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: #64748B;
+  white-space: nowrap;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.phone-kpi-value {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.1;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.phone-kpi-pill {
+  font-size: 0.45rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 9999px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.phone-kpi-pill--green {
+  background-color: #DCFCE7;
+  color: #16A34A;
+}
+
+.phone-kpi-pill--red {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+/* --------------------------------------------------------------------------
+   3. Sales Overview Section & Spline Area Chart
+   -------------------------------------------------------------------------- */
+.phone-chart-section {
+  background: #FFFFFF;
+  border: 1px solid #F1F5F9;
+  border-radius: 12px;
+  padding: 8px 10px 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  margin-bottom: 8px;
+}
+
+.phone-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.phone-section-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.phone-date-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.52rem;
+  font-weight: 600;
+  color: #64748B;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 2px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.phone-spline-chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 72px;
+  margin-top: 2px;
+}
+
+.phone-spline-svg {
+  width: 100%;
+  height: 56px;
+  display: block;
+}
+
+.phone-chart-tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  background: #1E1B4B;
+  color: #FFFFFF;
+  font-size: 0.52rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(30, 27, 75, 0.35);
+  pointer-events: none;
+}
+
+.phone-chart-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid #1E1B4B;
+}
+
+.phone-chart-x-labels {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2px;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.phone-chart-x-labels .active-date {
+  color: #4F46E5;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   4. Recent Orders Section
+   -------------------------------------------------------------------------- */
+.phone-orders-section {
+  background: #FFFFFF;
+  border: 1px solid #F1F5F9;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  margin-bottom: 6px;
+}
+
+.phone-view-all-btn {
+  background: none;
+  border: none;
+  color: #2563EB;
+  font-size: 0.52rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.phone-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.phone-order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone-order-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-order-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-order-avatar--orange {
+  background-color: #FFF7ED;
+}
+
+.phone-order-avatar--blue {
+  background-color: #EFF6FF;
+}
+
+.phone-order-avatar--red {
+  background-color: #FEF2F2;
+}
+
+.phone-order-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.phone-order-id {
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.1;
+}
+
+.phone-order-sub {
+  font-size: 0.48rem;
+  font-weight: 500;
+  color: #94A3B8;
+  line-height: 1.1;
+}
+
+.phone-status-pill {
+  font-size: 0.5rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.phone-status-pill--processing {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.phone-status-pill--delivered {
+  background-color: #DCFCE7;
+  color: #16A34A;
+}
+
+.phone-status-pill--pending {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+/* --------------------------------------------------------------------------
+   5. Bottom Navigation Bar inside Phone
+   -------------------------------------------------------------------------- */
+.phone-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 4px 2px;
+  border-top: 1px solid #F1F5F9;
+  background: #FFFFFF;
+}
+
+.phone-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-size: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: color 0.15s ease;
+}
+
+.phone-nav-item--active {
+  color: #2563EB;
+  font-weight: 800;
+}
+
+.phone-nav-item:hover {
+  color: #2563EB;
+}
+

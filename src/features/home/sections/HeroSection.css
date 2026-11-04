@@ -5,14 +5,13 @@
 .hero-scroll-wrapper {
   position: relative;
   width: 100%;
-  min-height: 120vh;
-  padding: 16px 20px 40px;
+  padding: 112px 24px 20px;
   background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-divider, #E2E8F0);
 }
 
 .hero-sticky-stage {
-  position: sticky;
-  top: 16px;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -26,14 +25,14 @@
   background: radial-gradient(circle at 50% 20%, #FFFFFF 0%, #F5F7FF 45%, #EEF2FF 100%);
   border: 1px solid rgba(79, 70, 229, 0.12);
   border-radius: 40px;
-  padding: 60px 24px 0;
+  padding: 44px 24px 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 40px rgba(79, 70, 229, 0.05);
-  min-height: 820px;
+  min-height: 840px;
 }
 
 /* ==========================================================================
@@ -98,15 +97,61 @@
   white-space: nowrap;
 }
 
-/* Subtitle */
+/* Subtitle — Clean Typography matching User Reference */
 .hero-display-sub {
   font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
-  line-height: 1.55;
+  font-size: clamp(1.02rem, 1.4vw, 1.22rem);
+  line-height: 1.7;
   color: #4B5563;
-  max-width: 580px;
-  margin: 0 auto 28px;
+  max-width: 680px;
+  margin: 0 auto 30px;
   font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* Typewriter Container & Editorial Accent */
+.hero-typewriter-container {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.hero-editorial-accent {
+  color: #EF4444;
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 600;
+  display: inline;
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23EF4444' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='0.6' d='M0 2 Q 5 0, 10 2 T 20 2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom 0 left 0;
+  background-size: 13px 4px;
+  padding: 0 2px 4px 2px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Crisp Blinking Typewriter Cursor */
+.hero-typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: #EF4444;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  border-radius: 1px;
+  animation: typewriterBlink 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes typewriterBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Signature Pill CTA Button (GET STARTED ↗) */
@@ -165,12 +210,13 @@
 .hero-visual-stage {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  height: 480px;
+  max-width: 1040px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* Concentric Colored Arches in Background */
@@ -248,17 +294,18 @@
 .phone-top-bar {
   position: relative;
   height: 38px;
-  background-color: #38BDF8;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 18px;
   border-top-left-radius: 36px;
   border-top-right-radius: 36px;
-  color: #FFFFFF;
+  color: #0F172A;
   font-size: 0.75rem;
   font-weight: 700;
   z-index: 4;
+  border-bottom: 1px solid #F1F5F9;
 }
 
 .phone-clock-text {
@@ -266,6 +313,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: #0F172A;
   z-index: 2;
 }
 
@@ -297,7 +345,7 @@
 .bar-signal i {
   display: block;
   width: 2.2px;
-  background: #FFFFFF;
+  background: #0F172A;
   border-radius: 1px;
 }
 .bar-signal i:nth-child(1) { height: 3.5px; }
@@ -308,7 +356,7 @@
 .battery-glyph {
   width: 19px;
   height: 10px;
-  border: 1.5px solid #FFFFFF;
+  border: 1.5px solid #0F172A;
   border-radius: 3px;
   padding: 1px;
   display: flex;
@@ -323,275 +371,568 @@
   top: 2.5px;
   width: 2px;
   height: 3px;
-  background: #FFFFFF;
+  background: #0F172A;
   border-radius: 0 1px 1px 0;
 }
 
 .battery-level {
   width: 100%;
   height: 100%;
-  background: #FFFFFF;
+  background: #0F172A;
   border-radius: 1px;
 }
 
-/* Phone Screen Canvas */
+/* Clean White Phone Screen Canvas */
 .phone-screen-canvas {
   flex: 1;
-  background: linear-gradient(180deg, #38BDF8 0%, #0EA5E9 45%, #0284C7 85%, #0369A1 100%);
-  padding: 16px 14px 20px;
+  background: #FFFFFF;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-bottom-left-radius: 36px;
   border-bottom-right-radius: 36px;
   position: relative;
   overflow: hidden;
 }
 
-/* Semicircular Radial Speedometer Gauge */
-.phone-gauge-container {
-  position: relative;
-  width: 180px;
-  height: 110px;
-  margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
+/* ==========================================================================
+   Satellite Deck & Absolute Card Positions
+   ========================================================================== */
 
-.gauge-ticks-arc {
+.hero-satellite-deck {
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 50%;
-  width: 0;
-  height: 0;
-}
-
-.gauge-tick {
-  position: absolute;
-  width: 6px;
-  height: 18px;
-  border-radius: 4px;
-  transform-origin: center bottom;
-  left: -3px;
-  bottom: 0;
-}
-
-.gauge-tick--active {
-  background-color: #FFDE00;
-  box-shadow: 0 0 8px rgba(255, 222, 0, 0.6);
-}
-
-.gauge-tick--inactive {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.gauge-center-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 2px;
-}
-
-.gauge-percentage-number {
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #FFFFFF;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.gauge-percentage-sub {
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
-  margin-top: 3px;
-  white-space: nowrap;
-}
-
-.phone-inner-backdrop {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 130px;
-  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.25) 100%);
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1040px;
+  height: 520px;
   pointer-events: none;
+  z-index: 5;
 }
 
 /* ==========================================================================
-   Overlapping Floating Cards with Ambient Float Physics
+   3D Interactive Flip Satellite Cards (Desktop Parallax + 360 Flip / Mobile Deck)
    ========================================================================== */
 
-.hero-float-card {
+.hero-satellite-card-wrapper {
   position: absolute;
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 12px 18px;
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.16),
-    0 4px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  z-index: 5;
+  perspective: 1200px;
+  pointer-events: auto;
+  user-select: none;
   cursor: pointer;
   will-change: transform;
 }
 
-/* Left Card: Artc F... */
-.hero-float-card--artc {
-  bottom: 30px;
-  left: -80px;
-  gap: 12px;
-  min-width: 175px;
+/* Ambient Floating Carriers (gentle organic hovering when static) */
+.hero-card-carrier {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.artc-blue-icon {
-  width: 38px;
-  height: 38px;
+.hero-card-carrier--1 {
+  animation: heroCardCarrierFloat1 5.4s ease-in-out infinite;
+}
+
+.hero-card-carrier--2 {
+  animation: heroCardCarrierFloat2 5.9s ease-in-out infinite 0.7s;
+}
+
+.hero-card-carrier--3 {
+  animation: heroCardCarrierFloat3 5.0s ease-in-out infinite 1.2s;
+}
+
+.hero-card-carrier--4 {
+  animation: heroCardCarrierFloat4 6.5s ease-in-out infinite 1.8s;
+}
+
+@keyframes heroCardCarrierFloat1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(0.6deg);
+  }
+}
+
+@keyframes heroCardCarrierFloat2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.7deg);
+  }
+}
+
+@keyframes heroCardCarrierFloat3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(-0.5deg);
+  }
+}
+
+@keyframes heroCardCarrierFloat4 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+}
+
+/* 3D Flip Inner Container with GPU Acceleration */
+.hero-satellite-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Flip card on hover OR when is-flipped class active (touch/click) */
+.hero-satellite-card-wrapper:hover .hero-satellite-card-inner,
+.hero-satellite-card-wrapper.is-flipped .hero-satellite-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Shared Card Face Base */
+.hero-satellite-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* FRONT FACE */
+.hero-satellite-card-front {
+  background: #FFFFFF;
+  box-shadow: 
+    0 22px 50px -12px rgba(15, 23, 42, 0.12),
+    0 4px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  transform: rotateY(0deg);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* BACK FACE (3D Flip Side) */
+.hero-satellite-card-back {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F5F7FF 100%);
+  border: 1px solid rgba(99, 102, 241, 0.32);
+  box-shadow: 
+    0 25px 55px -10px rgba(79, 70, 229, 0.22),
+    0 4px 20px rgba(0, 0, 0, 0.06);
+  transform: rotateY(180deg);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Desktop Absolute Card Positions - elevated to guarantee 0 clipping */
+.hero-satellite-card-wrapper--inventory {
+  top: 55px;
+  left: 20px;
+  width: 240px;
+  height: 185px;
+}
+
+.hero-satellite-card-wrapper--secure {
+  bottom: 80px;
+  left: 30px;
+  width: 235px;
+  height: 76px;
+}
+
+.hero-satellite-card-wrapper--sales {
+  top: 45px;
+  right: 20px;
+  width: 250px;
+  height: 185px;
+}
+
+.hero-satellite-card-wrapper--orders {
+  bottom: 70px;
+  right: 25px;
+  width: 215px;
+  height: 175px;
+}
+
+.hero-satellite-card-face--secure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.secure-desktop-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+
+.secure-mobile-full {
+  display: none;
+}
+
+/* Card Header Components */
+.satellite-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.satellite-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.satellite-card-icon-badge {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.artc-text-block {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+.satellite-card-icon-badge--blue {
+  background: #3B82F6;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.35);
 }
 
-.artc-title {
+.satellite-card-icon-badge--cyan {
+  background: #06B6D4;
+  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.35);
+}
+
+.satellite-card-icon-badge--indigo {
+  background: #4F46E5;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.35);
+}
+
+.satellite-card-icon-badge--orange {
+  background: #EA580C;
+  box-shadow: 0 4px 10px rgba(234, 88, 12, 0.35);
+}
+
+.satellite-card-title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: #0F172A;
-  line-height: 1.15;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  line-height: 1.1;
 }
 
-.artc-date {
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748B;
-}
-
-/* Right Card: Expenses 85% */
-.hero-float-card--expenses {
-  bottom: 15px;
-  right: -60px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 150px;
-  padding: 12px 16px;
-}
-
-.expenses-text-block {
+/* Metric Row */
+.satellite-metric-row {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  margin-bottom: 8px;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 
-.expenses-tag {
-  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #64748B;
-}
-
-.expenses-val {
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #2563EB;
-}
-
-.expenses-mini-bars {
+.satellite-metric-left {
   display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 26px;
+  flex-direction: column;
+}
+
+.satellite-large-number {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.satellite-metric-sub {
+  font-size: 0.62rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.satellite-badge-pill {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  line-height: 1.1;
+}
+
+.satellite-badge-pill--green {
+  background: #DCFCE7;
+  color: #16A34A;
+}
+
+/* Progress Track */
+.satellite-progress-track {
   width: 100%;
+  height: 5px;
+  background: #F1F5F9;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 6px;
 }
 
-.mini-bar {
-  flex: 1;
-  background-color: #CBD5E1;
-  border-radius: 3px;
-  min-width: 5px;
+.satellite-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6 0%, #38BDF8 50%, #3B82F6 100%);
+  background-size: 200% 100%;
+  border-radius: 9999px;
+  animation: progressShimmer 3.2s ease-in-out infinite;
 }
 
-.mini-bar--highlight {
-  background-color: #2563EB;
+@keyframes progressShimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
-/* Floating Piggy Bank Badge (Right) */
-.hero-piggy-badge {
-  position: absolute;
-  top: 60%;
-  right: -95px;
-  width: 60px;
-  height: 60px;
+/* Breakdown List */
+.satellite-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5px;
+}
+
+.satellite-breakdown-list--tight {
+  gap: 4px;
+}
+
+.satellite-breakdown-list--orders {
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.satellite-breakdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
+
+.satellite-breakdown-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.satellite-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot--blue { background: #3B82F6; }
+.dot--yellow { background: #EAB308; }
+.dot--red { background: #EF4444; }
+.dot--orange { background: #F59E0B; }
+.dot--green { background: #10B981; }
+.dot--cyan { background: #06B6D4; }
+
+.satellite-breakdown-label {
+  color: #64748B;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.satellite-breakdown-val {
+  font-weight: 800;
+  color: #0F172A;
+}
+
+/* Back Face Detailed KPI Block */
+.satellite-back-kpi-block {
+  display: flex;
+  flex-direction: column;
+  margin: 2px 0 4px;
+}
+
+.satellite-back-kpi-val {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #4F46E5;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.satellite-back-kpi-sub {
+  font-size: 0.6rem;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.satellite-back-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  border-top: 1px solid #EEF2FF;
+  font-size: 0.58rem;
+}
+
+.satellite-live-chip {
+  color: #16A34A;
+  font-weight: 700;
+}
+
+.satellite-time-tag {
+  color: #4F46E5;
+  font-weight: 800;
+  background: #EEF2FF;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Secure & Reliable Card Components */
+.secure-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: #2563EB;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
-    0 16px 35px -6px rgba(37, 99, 235, 0.45),
-    0 4px 10px rgba(0, 0, 0, 0.08);
-  border: 3px solid #FFFFFF;
-  z-index: 6;
-  cursor: pointer;
-  will-change: transform;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+}
+
+.secure-text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.secure-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.secure-sub {
+  font-size: 0.65rem;
+  color: #64748B;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* Sales Analytics Gradient Bars */
+.sales-bars-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 46px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.sales-gradient-bar {
+  flex: 1;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 50%, #4F46E5 100%);
+  transform-origin: bottom;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  animation: salesBarAmbient 4s ease-in-out infinite alternate;
+}
+
+.sales-gradient-bar:nth-child(1) { animation-delay: 0.1s; }
+.sales-gradient-bar:nth-child(2) { animation-delay: 0.25s; }
+.sales-gradient-bar:nth-child(3) { animation-delay: 0.4s; }
+.sales-gradient-bar:nth-child(4) { animation-delay: 0.55s; }
+.sales-gradient-bar:nth-child(5) { animation-delay: 0.7s; }
+.sales-gradient-bar:nth-child(6) { animation-delay: 0.85s; }
+.sales-gradient-bar:nth-child(7) { animation-delay: 1.0s; }
+
+@keyframes salesBarAmbient {
+  0% { transform: scaleY(0.94); }
+  100% { transform: scaleY(1.05); filter: brightness(1.08); }
+}
+
+.sales-bars-row:hover .sales-gradient-bar {
+  animation-duration: 1.5s;
 }
 
 /* ==========================================================================
-   Responsive Breakpoints
+   Responsive Breakpoints: Tablet & Clean Non-Overlapping Mobile Deck
    ========================================================================== */
 
-@media (max-width: 1024px) {
-  .hero-display-title {
-    font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+@media (max-width: 1100px) {
+  .hero-satellite-card-wrapper--inventory {
+    left: 5px;
+    width: 215px;
+    transform: scale(0.92);
   }
 
-  .hero-float-card--artc {
-    left: -40px;
+  .hero-satellite-card-wrapper--secure {
+    left: 10px;
+    width: 210px;
+    transform: scale(0.92);
   }
 
-  .hero-float-card--expenses {
-    right: -30px;
+  .hero-satellite-card-wrapper--sales {
+    right: 5px;
+    width: 220px;
+    transform: scale(0.92);
   }
 
-  .hero-piggy-badge {
-    right: -45px;
+  .hero-satellite-card-wrapper--orders {
+    right: 10px;
+    width: 195px;
+    transform: scale(0.92);
   }
 
-  .hero-concentric-rings {
-    width: 640px;
-    height: 640px;
+  .hero-orbital-node--left {
+    left: 210px;
   }
-  .ring-band--outer { width: 620px; height: 620px; }
-  .ring-band--middle { width: 500px; height: 500px; }
-  .ring-band--inner { width: 390px; height: 390px; }
+
+  .hero-orbital-node--right {
+    right: 205px;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-scroll-wrapper {
     min-height: auto;
-    padding: 8px 10px 24px;
+    padding: 98px 12px 20px;
   }
 
   .hero-sticky-stage {
@@ -600,7 +941,7 @@
 
   .hero-container-card {
     border-radius: 28px;
-    padding: 104px 16px 28px;
+    padding: 24px 14px 28px;
     min-height: auto;
   }
 
@@ -625,10 +966,21 @@
   }
 
   .hero-display-sub {
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    padding: 0 6px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 8px;
     margin-bottom: 22px;
+    max-width: 480px;
+  }
+
+  .hero-editorial-accent {
+    background-size: 11px 3.5px;
+    padding-bottom: 3px;
+  }
+
+  .hero-typewriter-cursor {
+    width: 1.8px;
+    height: 1.05em;
   }
 
   .hero-pill-cta {
@@ -641,40 +993,38 @@
     height: 36px;
   }
 
+  /* Visual stage on mobile: vertical column with phone first, cards cleanly below */
   .hero-visual-stage {
-    height: 380px;
-    margin-top: 16px;
+    height: auto;
+    min-height: auto;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    overflow: visible;
   }
 
   .hero-concentric-rings {
     width: 440px;
     height: 440px;
-    bottom: -110px;
+    bottom: -80px;
   }
 
-  .ring-band--outer {
-    width: 420px;
-    height: 420px;
-    border-width: 24px;
-  }
+  .ring-band--outer { width: 420px; height: 420px; border-width: 24px; }
+  .ring-band--middle { width: 330px; height: 330px; border-width: 20px; }
+  .ring-band--inner { width: 250px; height: 250px; border-width: 16px; }
 
-  .ring-band--middle {
-    width: 330px;
-    height: 330px;
-    border-width: 20px;
-  }
-
-  .ring-band--inner {
-    width: 250px;
-    height: 250px;
-    border-width: 16px;
-  }
-
+  /* Phone Mockup is 100% visible, centered, unblocked */
   .hero-phone-container {
-    width: 250px;
-    height: 380px;
+    width: 280px;
+    height: 460px;
     border-radius: 36px;
     padding: 10px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    transform: none !important;
   }
 
   .phone-top-bar {
@@ -687,44 +1037,133 @@
     height: 18px;
   }
 
-  .phone-gauge-wrap {
-    width: 180px;
-    height: 180px;
-    margin-top: 16px;
+  /* Hide constellation lines & decorative nodes on mobile */
+  .hero-constellation-lines,
+  .hero-orbital-node,
+  .hero-orbital-dot {
+    display: none !important;
   }
 
-  .gauge-center-content {
-    top: 48%;
+  /* Satellite deck on mobile: clean 2x2 grid deck situated below the phone */
+  .hero-satellite-deck {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 4px;
+    pointer-events: auto;
+    z-index: 4;
   }
 
-  .gauge-percentage-number {
-    font-size: 2.2rem;
+  .hero-satellite-card-wrapper {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: 175px !important;
+    grid-column: auto !important;
+    transform: none !important;
   }
 
-  .gauge-percentage-sub {
-    font-size: 0.625rem;
+  .hero-satellite-card-wrapper--secure {
+    grid-column: auto !important;
+    height: 175px !important;
   }
 
-  .hero-float-card--artc {
-    left: -6px;
-    bottom: 24px;
-    min-width: 116px;
-    padding: 6px 10px;
-    border-radius: 12px;
+  .hero-satellite-card-face {
+    padding: 10px 10px;
+    border-radius: 16px;
   }
 
-  .hero-float-card--expenses {
-    right: -6px;
-    bottom: 16px;
-    min-width: 110px;
-    padding: 6px 10px;
-    border-radius: 12px;
+  .satellite-card-header {
+    gap: 4px;
+    margin-bottom: 4px;
   }
 
-  .hero-piggy-badge {
-    right: -6px;
-    bottom: 110px;
-    width: 42px;
-    height: 42px;
+  .satellite-header-left {
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .satellite-card-icon-badge {
+    width: 22px;
+    height: 22px;
+  }
+
+  .satellite-card-icon-badge svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .satellite-card-title {
+    font-size: 0.69rem;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .satellite-large-number {
+    font-size: 1.15rem;
+  }
+
+  .satellite-metric-sub {
+    font-size: 0.56rem;
+  }
+
+  .satellite-badge-pill {
+    font-size: 0.56rem;
+    padding: 1px 5px;
+  }
+
+  .satellite-progress-track {
+    height: 4px;
+    margin-bottom: 5px;
+  }
+
+  .satellite-breakdown-list {
+    gap: 3.5px;
+  }
+
+  .satellite-breakdown-list--orders {
+    gap: 5.5px;
+    margin-top: 3px;
+  }
+
+  .satellite-breakdown-item {
+    font-size: 0.64rem;
+  }
+
+  .satellite-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .sales-bars-row {
+    height: 38px;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .hero-card-carrier {
+    animation: none !important;
+  }
+
+  .secure-desktop-compact {
+    display: none !important;
+  }
+
+  .secure-mobile-full {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
   }
 }

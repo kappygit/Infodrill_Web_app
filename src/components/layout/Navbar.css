@@ -1,319 +1,491 @@
 /* ==========================================================================
-   Top Notch Header — Reference Screenshot 1
+   Site Navbar — Modern, Premium, Smoothly Animated Dynamic Header
    ========================================================================== */
 
-.top-notch-header {
-  position: absolute;
+.site-navbar {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: 1000;
+  box-sizing: border-box;
+  will-change: height, background-color, box-shadow, border-color;
+  transition: 
+    background-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* State: At Top of Page */
+.site-navbar--top {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.55);
+}
+
+/* State: Scrolled Down (Dynamic Frosted Glass & Floating Elevation) */
+.site-navbar--scrolled {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 
+    0 10px 30px -10px rgba(15, 23, 42, 0.08),
+    0 1px 3px 0 rgba(15, 23, 42, 0.04);
+}
+
+.navbar-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 36px;
   display: flex;
-  justify-content: center;
-  pointer-events: none;
-  transition: all 250ms ease;
+  align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-}
-
-.top-notch-header--scrolled {
-  position: fixed;
-  top: 12px;
-}
-
-.top-notch-bar {
+  height: 88px;
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  pointer-events: auto;
+  transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), padding 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.notch-content {
-  background: #121212;
-  color: #FFFFFF;
+.site-navbar--scrolled .navbar-container {
+  height: 72px;
+  padding: 0 36px;
+}
+
+/* ==========================================================================
+   Left: Brand Logo (Prominent Scale, Authentic Brand Colors)
+   ========================================================================== */
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.navbar-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding: 12px 32px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.top-notch-header--scrolled .notch-content {
-  border-radius: 9999px;
-  padding: 10px 28px;
-  background: rgba(18, 18, 18, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Concave Fillets on Left and Right (creating seamless curve into header) */
-.notch-fillet {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  overflow: hidden;
+.navbar-logo-img,
+.navbar-logo-img svg,
+.navbar-logo-img img,
+.navbar-logo-img .infodrill-brand-img {
+  height: 58px !important;
+  max-height: 58px !important;
+  width: auto !important;
+  object-fit: contain;
   display: block;
+  transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.top-notch-header--scrolled .notch-fillet {
-  display: none;
+.navbar-logo-wrap--compact .navbar-logo-img,
+.navbar-logo-wrap--compact .navbar-logo-img svg,
+.navbar-logo-wrap--compact .navbar-logo-img img,
+.navbar-logo-wrap--compact .navbar-logo-img .infodrill-brand-img {
+  height: 46px !important;
+  max-height: 46px !important;
+  transform: none !important;
 }
 
-.notch-fillet--left {
-  right: -1px;
-}
+/* ==========================================================================
+   Center: Floating Capsule Navigation Pill (Animated Glide & Micro-Interactions)
+   ========================================================================== */
 
-.notch-fillet--left::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 20px -20px 0 0 #121212;
-}
-
-.notch-fillet--right {
-  left: -1px;
-}
-
-.notch-fillet--right::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: -20px -20px 0 0 #121212;
-}
-
-/* Logo */
-.notch-logo {
+.navbar-center-pill {
+  position: relative;
   display: flex;
   align-items: center;
-  transition: transform 180ms ease;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 11px 30px;
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.03),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: 
+    padding 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-center-pill--scrolled {
+  padding: 7px 22px;
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(203, 213, 225, 0.9);
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-links {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: gap 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-center-pill--scrolled .navbar-links {
+  gap: 22px;
+}
+
+.navbar-links__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links__item--static,
+.navbar-links__item--whatwedo {
+  position: static;
+}
+
+.navbar-links__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 550;
+  color: #4B5563;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 200ms ease;
+  user-select: none;
+}
+
+.navbar-center-pill--scrolled .navbar-links__link {
+  font-size: 0.875rem;
+  padding: 5px 12px;
+}
+
+.navbar-links__link:hover {
+  color: #000000;
+}
+
+.navbar-links__link--expanded {
+  color: #7C3AED !important;
+}
+
+.navbar-purple-underline {
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  right: 12px;
+  height: 2.5px;
+  background-color: #7C3AED;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.navbar-chevron {
+  margin-left: 5px;
+  color: #64748B;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-chevron--open {
+  transform: rotate(180deg);
+  color: #7C3AED;
+}
+
+.navbar-links__link--active {
+  color: #111827;
+  font-weight: 600;
+}
+
+.navbar-links__label {
+  position: relative;
+  z-index: 2;
+}
+
+/* Gliding Magnetic Hover Capsule */
+.navbar-hover-pill-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.06);
+  border-radius: 9999px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Active Section Indicator Dot */
+.navbar-active-indicator {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4F46E5;
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.8);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Right: Solid Black Pill CTA Button with Interactive Micro-Animations
+   ========================================================================== */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.notch-logo img {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-}
-
-.notch-logo:hover {
-  transform: scale(1.04);
-}
-
-/* Navigation Links */
-.notch-nav {
-  display: flex;
-  align-items: center;
-}
-
-.notch-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  list-style: none;
-}
-
-.notch-links__link {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #B3B3B3;
-  transition: color 180ms ease;
-  white-space: nowrap;
-}
-
-.notch-links__link:hover {
-  color: #FFFFFF;
-}
-
-/* Header CTA Button: Get Started */
-.notch-cta-btn {
+.navbar-cta-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-  color: #FFFFFF;
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 700;
+  gap: 8px;
+  background: #000000;
+  color: #FFFFFF !important;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  transition: all 180ms ease;
-  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.4);
+  overflow: hidden;
+  box-shadow: 
+    0 3px 12px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: 
+    padding 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    font-size 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms ease,
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 200ms ease;
 }
 
-.notch-cta-btn:hover {
-  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(79, 70, 229, 0.55);
+.navbar-cta-btn--compact {
+  padding: 9px 22px;
+  font-size: 0.875rem;
 }
 
-/* Mobile Toggle */
-.notch-mobile-toggle {
+.navbar-cta-btn:hover {
+  background: #18181B;
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 8px 24px -2px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.navbar-cta-btn:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+
+.navbar-cta-text {
+  position: relative;
+  z-index: 2;
+  letter-spacing: -0.01em;
+}
+
+.navbar-cta-arrow {
+  position: relative;
+  z-index: 2;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-cta-btn:hover .navbar-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Shimmer Light Reflection on Hover */
+.navbar-cta-shimmer {
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.navbar-cta-btn:hover .navbar-cta-shimmer {
+  transform: rotate(25deg) translate(350%, 0);
+}
+
+/* ==========================================================================
+   Mobile Toggle (Hidden on Desktop)
+   ========================================================================== */
+
+.navbar-mobile-toggle {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #FFFFFF;
+  background: transparent;
+  border: none;
+  padding: 10px;
   cursor: pointer;
-  padding: 0;
-  transition: all 180ms ease;
+  color: #0F172A;
+  border-radius: 12px;
+  transition: 
+    background-color 200ms ease,
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding 350ms cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
 }
 
-.notch-mobile-toggle:hover,
-.notch-mobile-toggle:active {
-  background: rgba(255, 255, 255, 0.18);
-  transform: scale(1.05);
+.navbar-mobile-toggle:hover {
+  background-color: #F1F5F9;
+  transform: scale(1.04);
 }
+
+.navbar-mobile-toggle:active {
+  transform: scale(0.96);
+}
+
+.navbar-mobile-toggle--compact {
+  padding: 8px;
+}
+
+/* ==========================================================================
+   Hairline Scroll Progress Indicator
+   ========================================================================== */
+
+.navbar-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.navbar-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #6366F1 0%, #4F46E5 40%, #06B6D4 80%, #38BDF8 100%);
+  transform-origin: 0% 50%;
+  will-change: transform, opacity;
+  transition: transform 80ms linear, opacity 300ms ease;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
+/* ==========================================================================
+   Responsive: Tablet & Mobile Views (Image 3 Reference Match)
+   Prominent, Clear Brand Presence with Generous Touch Ergonomics
+   ========================================================================== */
 
 @media (max-width: 900px) {
-  .notch-links {
-    display: none;
+  .navbar-container {
+    padding: 0 20px;
+    height: 80px;
   }
 
-  .notch-mobile-toggle {
-    display: flex;
+  .site-navbar--scrolled .navbar-container {
+    height: 70px;
+    padding: 0 20px;
   }
 
-  .notch-content {
-    gap: 16px;
-    padding: 10px 22px;
-  }
-}
-
-@media (max-width: 640px) {
-  .top-notch-header {
-    position: fixed;
-    top: 10px;
-    left: 0;
-    right: 0;
-    padding: 0 12px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    z-index: 9999;
-  }
-
-  .top-notch-header--scrolled {
-    top: 10px;
-  }
-
-  .top-notch-bar {
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .notch-content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 9999px;
-    padding: 5px 8px 5px 12px;
-    gap: 8px;
-    background: rgba(15, 19, 29, 0.94);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.35), 0 0 15px rgba(99, 102, 241, 0.15);
-  }
-
-  .notch-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  .notch-logo img,
-  .notch-logo .infodrill-brand-img {
-    height: 48px !important;
-    max-height: 48px !important;
-    width: auto !important;
-    object-fit: contain;
-  }
-
-  .notch-fillet {
+  .navbar-center-pill {
     display: none !important;
   }
 
-  .notch-cta-btn {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
-    color: #FFFFFF;
-    border-radius: 9999px;
-    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.4);
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
+  .navbar-actions {
+    display: none !important;
   }
 
-  .notch-cta-btn svg {
-    width: 12px;
-    height: 12px;
+  .navbar-mobile-toggle {
+    display: flex !important;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
   }
 
-  .notch-mobile-toggle {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    flex-shrink: 0;
+  .navbar-logo-wrap {
+    transform: none !important;
   }
 
-  .notch-mobile-toggle svg {
-    width: 17px;
-    height: 17px;
+  .navbar-logo-img,
+  .navbar-logo-img svg,
+  .navbar-logo-img img,
+  .navbar-logo-img .infodrill-brand-img {
+    height: 52px !important;
+    max-height: 52px !important;
+    width: auto !important;
+  }
+
+  .navbar-logo-wrap--compact .navbar-logo-img,
+  .navbar-logo-wrap--compact .navbar-logo-img svg,
+  .navbar-logo-wrap--compact .navbar-logo-img img,
+  .navbar-logo-wrap--compact .navbar-logo-img .infodrill-brand-img {
+    height: 44px !important;
+    max-height: 44px !important;
+    transform: none !important;
   }
 }
 
-@media (max-width: 380px) {
-  .notch-content {
-    padding: 4px 6px 4px 10px;
-    gap: 6px;
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 16px;
+    height: 78px;
   }
 
-  .notch-logo img,
-  .notch-logo .infodrill-brand-img {
-    height: 42px !important;
-    max-height: 42px !important;
+  .site-navbar--scrolled .navbar-container {
+    height: 68px;
+    padding: 0 16px;
   }
 
-  .notch-cta-btn {
-    padding: 5px 9px;
-    font-size: 0.7rem;
+  .navbar-logo-img,
+  .navbar-logo-img svg,
+  .navbar-logo-img img,
+  .navbar-logo-img .infodrill-brand-img {
+    height: 48px !important;
+    max-height: 48px !important;
+    width: auto !important;
   }
 
-  .notch-mobile-toggle {
-    width: 32px;
-    height: 32px;
+  .navbar-logo-wrap--compact .navbar-logo-img,
+  .navbar-logo-wrap--compact .navbar-logo-img svg,
+  .navbar-logo-wrap--compact .navbar-logo-img img,
+  .navbar-logo-wrap--compact .navbar-logo-img .infodrill-brand-img {
+    height: 40px !important;
+    max-height: 40px !important;
+    transform: none !important;
+  }
+
+  .navbar-mobile-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 7px;
   }
 }

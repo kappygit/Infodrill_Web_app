@@ -175,20 +175,14 @@
 .footer-brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
-  margin-bottom: 16px;
-  transition: transform 0.2s ease;
-}
-
-.footer-brand-logo img {
-  height: 64px;
-  width: auto;
-  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-brand-logo:hover {
-  transform: scale(1.02);
+  transform: translateY(-1px);
+  opacity: 0.95;
 }
 
 .footer-logo-mark {

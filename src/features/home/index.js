@@ -1,6 +1,7 @@
 export { HomePage } from './HomePage';
 export { HeroSection } from './sections/HeroSection';
 export { StatsSection } from './sections/StatsSection';
+export { PeoplePurposeSection } from './sections/PeoplePurposeSection';
 export { AboutSection } from './sections/AboutSection';
 export { ServicesGridSection } from './sections/ServicesGridSection';
 export { IndustriesSection } from './sections/IndustriesSection';
