@@ -34,6 +34,10 @@ export function Navbar() {
     }, 150); // 150ms close delay preventing flicker
   };
 
+  const handleToggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
   // Close mega menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -210,7 +214,7 @@ export function Navbar() {
           <button
             type="button"
             className={`navbar-mobile-toggle ${isScrolled ? 'navbar-mobile-toggle--compact' : ''}`}
-            onClick={() => setMobileMenuOpen(prev => !prev)}
+            onClick={handleToggleMobileMenu}
             aria-label="Open navigation menu"
             aria-expanded={mobileMenuOpen}
           >

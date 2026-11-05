@@ -23,6 +23,19 @@ import './MobileNavigation.css';
 export function MobileNavigation({ isOpen, onClose }) {
   const { openGetStartedModal } = useModal();
   const drawerRef = useRef(null);
+  // Default open accordion section is strictly 'portfolio' (Services is closed)
+  const [openSection, setOpenSection] = useState('portfolio');
+
+  // Ensure 'portfolio' is always open whenever the drawer opens
+  useEffect(() => {
+    if (isOpen) {
+      setOpenSection('portfolio');
+    }
+  }, [isOpen]);
+
+  const handleToggleSection = (sectionId) => {
+    setOpenSection((prev) => (prev === sectionId ? null : sectionId));
+  };
 
   // Close on Escape & handle Tab trap
   useEffect(() => {
@@ -83,17 +96,6 @@ export function MobileNavigation({ isOpen, onClose }) {
     }
   };
 
-  const services = [
-    'ERP Development',
-    'CRM Solutions',
-    'AI Solutions',
-    'Web Development',
-    'App Development',
-    'Custom Software',
-    'Cloud & DevOps',
-    'Business Automation'
-  ];
-
   const phone = siteConfig?.contact?.phone || '+91 92135 32517';
   const email = siteConfig?.contact?.email || 'infodrillaisolutions@gmail.com';
   const address = siteConfig?.contact?.address || '307, Silver Radiance One, Thaltej, Ahmedabad, Gujarat – 380054';
@@ -146,28 +148,16 @@ export function MobileNavigation({ isOpen, onClose }) {
             {/* Scrollable Content Body */}
             <div className="mobile-nav-scroll-body">
 
-              {/* Section 1: EXPLORE INFODRILL (Interactive Mega Menu Accordion) */}
+              {/* Section 1: EXPLORE INFODRILL (Interactive Mega Menu Accordion - Portfolio Open by Default) */}
               <div className="drawer-nav-column">
                 <h3 className="drawer-nav-header">EXPLORE INFODRILL</h3>
-                <MegaMenu isMobile={true} onClose={onClose} />
-              </div>
-
-              {/* Section 2: SERVICES */}
-              <div className="drawer-nav-column">
-                <h3 className="drawer-nav-header">SERVICES</h3>
-                <ul className="drawer-nav-list" role="list">
-                  {services.map((item) => (
-                    <li key={item} className="drawer-nav-item">
-                      <a
-                        href="#services"
-                        className="drawer-nav-link"
-                        onClick={(e) => handleLinkClick(e, '#services')}
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <MegaMenu
+                  isMobile={true}
+                  isOpen={isOpen}
+                  openSection={openSection}
+                  onToggleSection={handleToggleSection}
+                  onClose={onClose}
+                />
               </div>
 
               {/* Section 4: CONTACT DETAILS */}

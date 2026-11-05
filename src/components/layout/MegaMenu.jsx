@@ -425,11 +425,32 @@ export function MegaMenu({
   onClose,
   onMouseEnter,
   onMouseLeave,
-  isMobile = false
+  isMobile = false,
+  openSection,
+  onToggleSection
 }) {
   const panelRef = useRef(null);
   const [notchLeft, setNotchLeft] = useState(null);
-  const [mobileExpandedSection, setMobileExpandedSection] = useState('services');
+  // Default open section on mobile accordion is strictly 'portfolio' (Services is closed)
+  const [mobileExpandedSection, setMobileExpandedSection] = useState('portfolio');
+
+  // Support controlled or internal open section
+  const currentExpandedSection = openSection !== undefined ? openSection : mobileExpandedSection;
+
+  const handleToggleAccordion = (catId) => {
+    if (onToggleSection) {
+      onToggleSection(catId);
+    } else {
+      setMobileExpandedSection((prev) => (prev === catId ? null : catId));
+    }
+  };
+
+  // Reset to 'portfolio' whenever opened on mobile
+  useEffect(() => {
+    if (isMobile) {
+      setMobileExpandedSection('portfolio');
+    }
+  }, [isMobile, isOpen]);
 
   // Active Category Data from centralized config
   const currentCategoryData = megaMenuConfig[activeCategory] || megaMenuConfig.services;
@@ -466,14 +487,14 @@ export function MegaMenu({
     return (
       <div className="megamenu-mobile-accordion">
         {categoriesList.map((cat) => {
-          const isExpanded = mobileExpandedSection === cat.id;
+          const isExpanded = currentExpandedSection === cat.id;
 
           return (
             <div key={cat.id} className="megamenu-mobile-card">
               <button
                 type="button"
                 className="megamenu-mobile-card-trigger"
-                onClick={() => setMobileExpandedSection(prev => prev === cat.id ? null : cat.id)}
+                onClick={() => handleToggleAccordion(cat.id)}
                 aria-expanded={isExpanded}
               >
                 <span className="megamenu-mobile-title">{cat.label}</span>
