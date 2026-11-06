@@ -431,10 +431,10 @@ export function MegaMenu({
 }) {
   const panelRef = useRef(null);
   const [notchLeft, setNotchLeft] = useState(null);
-  // Default open section on mobile accordion is strictly 'portfolio' (Services is closed)
+  // Default open accordion section is strictly 'portfolio' (Services is closed)
   const [mobileExpandedSection, setMobileExpandedSection] = useState('portfolio');
 
-  // Support controlled or internal open section
+  // Support controlled or internal state
   const currentExpandedSection = openSection !== undefined ? openSection : mobileExpandedSection;
 
   const handleToggleAccordion = (catId) => {
